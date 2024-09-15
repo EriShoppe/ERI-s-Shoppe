@@ -104,17 +104,6 @@ header {
 
 /* Style for the navigation bar */
 
-#navbar {
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  #navbar.hidden {
-    opacity: 0;
-    visibility: hidden;
-  }
-
 .navbar {
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
     padding: 0px;
