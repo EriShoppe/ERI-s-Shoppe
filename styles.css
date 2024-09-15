@@ -10,6 +10,21 @@ html {
     box-sizing: border-box;
 }
 
+h2 {
+    margin: auto 0;
+    display: block;
+}
+
+p {
+    margin: auto 0;
+    display: block;
+}
+
+li a {
+    margin: auto 0;
+    display: block;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
