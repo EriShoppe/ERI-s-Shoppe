@@ -121,15 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.getElementById('menu-toggle');
-        const navMenu = document.getElementById('nav-menu');
-      
-        menuToggle.addEventListener('click', () => {
-          navMenu.classList.toggle('active');
-        });
-      });
-      
     // Swipe handling
     document.addEventListener('touchstart', (e) => {
         touchStartY = e.touches[0].clientY;
@@ -180,5 +171,3 @@ document.addEventListener('DOMContentLoaded', () => {
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
-
-
