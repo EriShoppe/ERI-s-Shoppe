@@ -41,10 +41,11 @@ body {
 
 header {
     position: fixed;
-    top: 0;
+    text-align: center;
+    align-items: center;
     width: 100%;
-    background-color: #333;
-    padding: 1rem 0;
+    background-color: #3333336b;
+    padding: 0;
     z-index: 1000;
     opacity: 0;
     animation: fadeIn 1.5s forwards; /* Fade-in on load */
