@@ -142,7 +142,7 @@ nav ul li a:hover {
 
 /* Home Section */
 .home-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hero-image.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
     color: #fff;
 }
 
@@ -176,6 +176,8 @@ nav ul li a:hover {
 /* Services Section */
 .services-section {
     background-color: #f9f9f9;
+    justify-content: center;
+    align-items: center;
 }
 
 .catalog {
@@ -213,6 +215,8 @@ nav ul li a:hover {
     background-color: #2c3e50;
     color: #fff;
     padding: 5rem 2rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-section h2 {
@@ -227,6 +231,8 @@ nav ul li a:hover {
 /* Contact Section */
 .contact-section {
     background-color: #ecf0f1;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-section h2 {
@@ -274,12 +280,13 @@ nav ul li a:hover {
 
 /*Mobile Friendly*/
 
+.container {
+    padding: 1rem;
+}
 @media (max-width: 768px) {
-    .container {
-        padding: 1rem;
-    }
-    .menu {
-        display: block;
+    nav ul {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
