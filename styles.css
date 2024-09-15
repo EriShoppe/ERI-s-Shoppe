@@ -129,6 +129,12 @@ header {
         text-decoration: underline;
     }
 }
+/* Ensure the hamburger button and menu are not hidden */
+.hamburger,
+.nav-menu {
+    position: relative;
+    z-index: 1001; /* Ensure the button is above other content */
+}
 /* Desktop Styles */
 @media (min-width: 769px) {
     .nav-menu {
@@ -336,16 +342,6 @@ section {
 
 .contact-section a:hover {
     text-decoration: underline;
-}
-/*Mobile Friendly*/
-.container {
-    padding: 1rem;
-}
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
 }
 /* Footer */
 footer {
