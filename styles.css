@@ -21,7 +21,9 @@ body {
     margin: 0;
     padding: 0;
 }
+
 /* Header and Navigation */
+
 header {
     position: fixed;
     top: 0;
@@ -32,7 +34,9 @@ header {
     opacity: 0;
     animation: fadeIn 1.5s forwards; /* Fade-in on load */
 }
+
 /* Hamburger Button */
+
 .hamburger {
     font-size: 2rem;
     background: none;
@@ -41,7 +45,9 @@ header {
     cursor: pointer;
     display: none; /* Hide by default */
 }
+
 /* Full-screen video background */
+
 .video-background {
     position: relative;
     width: 100%;
@@ -58,7 +64,9 @@ header {
     object-fit: cover; /* Ensure the video covers the section */
     object-position: top; /* Align the video to the top */
 }
+
 /* Overlay for content on top of the video */
+
 .video-overlay {
     position: absolute;
     top: 0;
@@ -78,23 +86,80 @@ header {
 .video-overlay p {
     margin: 0;
 }
-/* Navigation Menu */
-.nav-menu {
+
+/* Style for the navigation bar */
+
+#navbar {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  #navbar.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 0px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Style for the navigation menu */
+  .nav-menu {
+    list-style: none;
     display: flex;
     justify-content: center;
-    align-items: center;
-}
+  }
+  
+  /* Style for individual menu items */
+  .nav-menu li {
+    margin: 0 15px;
+  }
+  
+  /* Style for the links */
+  .nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover effect */
+  .nav-menu a:hover {
+    color: #f0a500; /* Change the color on hover */
+  }
+  
+  /* Transparent effect when not hovering */
+  .navbar:not(:hover) {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Section styling */
+  section {
+    padding: 100px 20px;
+    min-height: 100vh;
+  }
+
 /* Mobile Styles */
+
 @media (max-width: 768px) {
     .hamburger {
         display: block; /* Show hamburger menu icon on mobile */
     }
 
-    .nav-menu {
+    .nav {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
+        height: 100vh;
         background: #333;
         color: #fff;
         transform: translateX(-100%);
@@ -105,66 +170,33 @@ header {
         z-index: 1000;
     }
 
-    .nav-menu.active {
+    .nav.active {
         transform: translateX(0);
     }
 
-    .nav-menu ul {
+    .nav ul {
         list-style: none;
         padding: 0;
         margin: 0;
     }
 
-    .nav-menu ul li {
+    .nav ul li {
         margin: 1rem 0;
     }
 
-    .nav-menu ul li a {
+    .nav ul li a {
         color: #fff;
         text-decoration: none;
         font-size: 1.5rem;
     }
 
-    .nav-menu ul li a:hover {
+    .nav ul li a:hover {
         text-decoration: underline;
     }
 }
-/* Ensure the hamburger button and menu are not hidden */
-.hamburger,
-.nav-menu {
-    position: relative;
-    z-index: 1001; /* Ensure the button is above other content */
-}
-/* Desktop Styles */
-@media (min-width: 769px) {
-    .nav-menu {
-        display: flex;
-        flex-direction: row;
-    }
 
-    .nav-menu ul {
-        display: flex;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav-menu ul li {
-        margin: 0;
-    }
-
-    .nav-menu ul li a {
-        color: #fff;
-        text-decoration: none;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-    }
-
-    .nav-menu ul li a:hover {
-        background-color: #555;
-    }
-}
 /* Section Styling */
+
 section {
     height: 100vh; /* Full viewport height */
     scroll-snap-align: start; /* Snap to section start */
@@ -175,10 +207,9 @@ section {
     box-sizing: border-box;
 }
 
-/* Section Styling */
 .slide-section {
     min-height: 100vh;
-    padding: 150px ;
+    padding: 100px ;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -188,7 +219,9 @@ section {
     transform: translateY(50px); /* Move sections down */
     transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* Smooth transitions */
 }
+
 /* Animations */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -219,7 +252,10 @@ section {
         transform: translateX(0);
     }
 }
+
+
 /* Home Section */
+
 .home-section {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
     color: #fff;
@@ -251,11 +287,15 @@ section {
     background-color: #2980b9;
     transform: scale(1.05); /* Slightly enlarge on hover */
 }
+
 /* Services Section */
+
 .services-section {
     background-color: #f9f9f9;
-    justify-content: center;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns content at the top */
+    height: 100vh; /* Example height */
 }
 
 .catalog {
@@ -274,7 +314,6 @@ section {
     max-width: calc(33.333% - 1.5rem);
     opacity: 0; /* Initially hidden */
     transform: translateX(50px); /* Slide in from the right */
-    animation: slideInRight 1.5s forwards; /* Slide-in animation */
 }
 
 .service-item img {
@@ -287,38 +326,15 @@ section {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-/* About Section */
-.about-section {
-    background-color: #2c3e50;
-    color: #fff;
-    padding: 5rem 2rem;
-    justify-content: center;
-    align-items: center;
-}
 
-.about-section h2 {
-    margin-bottom: 2rem;
-    background-color: #2c3e50;
-    color: #fff;
-    padding: 5rem 2rem;
-    justify-content: center;
-    align-items: center;
-}
-
-.about-section p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    background-color: #2c3e50;
-    color: #fff;
-    padding: 5rem 2rem;
-    justify-content: center;
-    align-items: center;
-}
 /* Contact Section */
+
 .contact-section {
     background-color: #ecf0f1;
-    justify-content: center;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns content at the top */
+    height: 100vh; /* Example height */
 }
 
 .contact-section h2 {
@@ -343,7 +359,21 @@ section {
 .contact-section a:hover {
     text-decoration: underline;
 }
+
+/*Mobile Friendly*/
+
+.container {
+    padding: 1rem;
+}
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 /* Footer */
+
 footer {
     background-color: #333;
     color: #fff;

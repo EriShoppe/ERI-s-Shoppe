@@ -171,3 +171,15 @@ document.addEventListener('DOMContentLoaded', () => {
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
+
+// Navbar
+
+const navbar = document.getElementById('navbar');
+
+navbar.addEventListener('mouseleave', () => {
+  navbar.classList.add('hidden');
+});
+
+navbar.addEventListener('mouseenter', () => {
+  navbar.classList.remove('hidden');
+});
