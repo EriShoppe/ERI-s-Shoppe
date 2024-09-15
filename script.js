@@ -99,14 +99,62 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Hamburger Menu for Mobile
+// Mobile Handling
+
 document.addEventListener('DOMContentLoaded', () => {
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navMenu = document.getElementById('nav-menu');
+    const sections = document.querySelectorAll('section');
+    let currentIndex = 0;
+    let touchStartY = 0;
 
     hamburgerBtn.addEventListener('click', () => {
         navMenu.classList.toggle('active');
     });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Swipe handling
+    document.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+        const touchEndY = e.changedTouches[0].clientY;
+        const touchDifference = touchStartY - touchEndY;
+
+        if (Math.abs(touchDifference) > 50) {
+            if (touchDifference > 0) {
+                // Swipe up
+                scrollToNextSection();
+            } else {
+                // Swipe down
+                scrollToPreviousSection();
+            }
+        }
+    });
+
+    function scrollToNextSection() {
+        if (currentIndex < sections.length - 1) {
+            currentIndex++;
+            sections[currentIndex].scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    function scrollToPreviousSection() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            sections[currentIndex].scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+});
 
     // Add smooth scroll behavior for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -117,7 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
-});
 
 
 // Disable scroll restoration
