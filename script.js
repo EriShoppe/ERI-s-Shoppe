@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Enhanced Scrolling
 document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.scroll-link');
 
@@ -98,9 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
 // Hamburger Menu for Mobile
-
 document.addEventListener('DOMContentLoaded', () => {
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navMenu = document.getElementById('nav-menu');
