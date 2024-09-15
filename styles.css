@@ -272,6 +272,18 @@ nav ul li a:hover {
     text-align: center;
 }
 
+/*Mobile Friendly*/
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    .menu {
+        display: block;
+    }
+}
+
+
 
 /* Footer */
 footer {
