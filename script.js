@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Mobile Handling
 
 document.addEventListener('DOMContentLoaded', () => {
-    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const sections = document.querySelectorAll('section');
     let currentIndex = 0;
