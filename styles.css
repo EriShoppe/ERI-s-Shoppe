@@ -169,7 +169,7 @@ header {
         display: block; /* Show hamburger menu icon on mobile */
     }
 
-    .nav {
+    .nav-menu {
         position: fixed;
         top: 0;
         left: 0;
@@ -185,27 +185,27 @@ header {
         z-index: 1000;
     }
 
-    .nav.active {
+    .nav-menu.active {
         transform: translateX(0);
     }
 
-    .nav ul {
+    .nav-menu ul {
         list-style: none;
         padding: 0;
         margin: 0;
     }
 
-    .nav ul li {
+    .nav-menu ul li {
         margin: 1rem 0;
     }
 
-    .nav ul li a {
+    .nav-menu ul li a {
         color: #fff;
         text-decoration: none;
         font-size: 1.5rem;
     }
 
-    .nav ul li a:hover {
+    .nav-menu ul li a:hover {
         text-decoration: underline;
     }
 }
