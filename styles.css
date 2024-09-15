@@ -104,7 +104,7 @@ header {
 
 /* Style for the navigation bar */
 
-.navbar {
+.nav {
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
     padding: 0px;
     position: fixed;
