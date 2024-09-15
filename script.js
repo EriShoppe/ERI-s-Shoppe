@@ -124,3 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.classList.toggle('active');
     });
 });
+
+// Disable scroll restoration
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}

@@ -1,5 +1,7 @@
 html {
     scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+    margin: 0;
+    padding: 0;
 }
 
 /* Global Styles */
@@ -12,10 +14,13 @@ html {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
+    overflow-x: hidden;
     height: 100vh;
     line-height: 1.6;
     background-image: url(Videos/background.mp4);
     scroll-snap-type: y mandatory;
+    margin: 0;
+    padding: 0;
 }
 
 /* Header and Navigation */
