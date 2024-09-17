@@ -171,3 +171,21 @@ document.addEventListener('DOMContentLoaded', () => {
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
+
+// home
+
+document.addEventListener('DOMContentLoaded', function() {
+    var homeSection = document.getElementById('home');
+    var mc = new Hammer(homeSection);
+  
+    mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+  
+    mc.on('swipeup', function() {
+      // Scroll to the next section
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      });
+    });
+  });
+  

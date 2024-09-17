@@ -1,7 +1,5 @@
 html {
     scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
-    margin: 0;
-    padding: 0;
 }
 /* Global Styles */
 * {
@@ -11,12 +9,13 @@ html {
 }
 
 body {
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
     overflow-x: hidden;
-    height: 100vh;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
     line-height: 1.6;
-    background-image: url(Videos/background.mp4);
     scroll-snap-type: y mandatory;
     margin: 0;
     padding: 0;
@@ -25,15 +24,17 @@ body {
 /* Header and Navigation */
 
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #333;
-    padding: 1rem 0;
-    z-index: 1000;
-    opacity: 0;
-    animation: fadeIn 1.5s forwards; /* Fade-in on load */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    overflow-x: hidden;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    line-height: 1.6;
+    scroll-snap-type: y mandatory;
+    margin: 0;
+    padding: 0;
 }
+
 
 /* Hamburger Button */
 
@@ -43,7 +44,16 @@ header {
     border: none;
     color: #fff;
     cursor: pointer;
-    display: none; /* Hide by default */
+    transition: transform 0.3s ease-in-out;
+}
+
+.hamburger:hover {
+    transform: scale(1.1);
+}
+
+.nav.active {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
 }
 
 /* Full-screen video background */
@@ -82,15 +92,45 @@ header {
     background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
     z-index: 1;
 }
-.video-overlay h1,
-.video-overlay p {
-    margin: 0;
+
+/* Update fonts and text size */
+.video-overlay h1 {
+    font-size: 3.5rem; /* Larger, more impactful */
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
 }
+
+.video-overlay p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Modern button style */
+.btn {
+    padding: 12px 24px;
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #16a085;
+    transform: translateY(-3px);
+}
+
 
 /* Style for the navigation bar */
 .navbar {
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-    padding: 15px;
+    padding: 2px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -103,7 +143,7 @@ header {
   .nav-menu {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: left;
   }
   
   /* Style for individual menu items */
@@ -126,7 +166,7 @@ header {
   
   /* Transparent effect when not hovering */
   .navbar:not(:hover) {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.096);
   }
   
   /* Section styling */
@@ -185,6 +225,18 @@ header {
 
 /* Section Styling */
 
+.container {
+    position: relative;
+    height: 500px; /* Example height */
+}
+
+.item {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center */
+}
+
+
 section {
     height: 100vh; /* Full viewport height */
     scroll-snap-align: start; /* Snap to section start */
@@ -197,7 +249,8 @@ section {
 
 .slide-section {
     min-height: 100vh;
-    padding: 100px ;
+    padding: 2px ;
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -247,6 +300,9 @@ section {
 .home-section {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
     color: #fff;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 .home-section .content h1 {
@@ -257,6 +313,8 @@ section {
     font-size: 1.2rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
+    align-items: center;
+    text-align: center;
 }
 
 .btn {
@@ -276,18 +334,62 @@ section {
     transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
+#home {
+    position: relative;
+    /* Other styles for your home section */
+  }
+  
+  .swipe-prompt {
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff; /* Or any color that contrasts well with your background */
+    font-size: 16px; /* Adjust as needed */
+    text-align: center;
+    animation: fadeInOut 2s infinite;
+  }
+  
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+
 /* Services Section */
 
 .services-section {
     background-color: #f9f9f9;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 50px 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.services-section h2 {
+    font-size: 2.5rem; /* Adjust as needed */
+    color: #333;
+    margin-bottom: 30px; /* Space between heading and catalog */
 }
 
 .catalog {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .service-item {
@@ -296,11 +398,15 @@ section {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 1 1 calc(33.333% - 1.5rem);
-    max-width: calc(33.333% - 1.5rem);
-    opacity: 0; /* Initially hidden */
-    transform: translateX(50px); /* Slide in from the right */
-    animation: slideInRight 1.5s forwards; /* Slide-in animation */
+    width: calc(33.333% - 40px);
+    max-width: 300px;
+    flex: 1 1 calc(33.333% - 40px);
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 1.5s forwards;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-align: left;
 }
 
 .service-item img {
@@ -309,19 +415,36 @@ section {
     margin-bottom: 1rem;
 }
 
+@media (max-width: 768px) {
+    .service-item {
+        width: calc(50% - 20px);
+    }
+}
+
 .service-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.service-item h3 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.service-item p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0.5rem 0;
+}
 /* About Section */
 
 .about-section {
     background-color: #2c3e50;
     color: #fff;
     padding: 5rem 2rem;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .about-section h2 {
@@ -335,33 +458,37 @@ section {
 
 /* Contact Section */
 
+/* Simple, centered contact section */
 .contact-section {
-    background-color: #ecf0f1;
-    justify-content: center;
-    align-items: center;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
 }
 
-.contact-section h2 {
-    margin-bottom: 1.5rem;
-}
-
-.contact-section .contact-list {
+.contact-list {
     list-style: none;
-    padding: 0;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
-.contact-section .contact-list li {
-    margin-bottom: 1rem;
+.contact-list li {
+    margin: 0.5rem 0;
 }
 
-.contact-section a {
-    color: #3498db;
-    text-decoration: none;
+.contact-list li a {
+    color: #1abc9c;
+    font-weight: 600;
 }
 
-.contact-section a:hover {
+.contact-list li a:hover {
     text-decoration: underline;
+}
+
+/*icons*/
+.contact-list li::before {
+    content: '\f095'; /* FontAwesome phone icon */
+    font-family: 'Font Awesome 5 Free';
+    margin-right: 8px;
 }
 
 /*Mobile Friendly*/
@@ -376,11 +503,35 @@ section {
     }
 }
 
-/* Footer */
+@media (max-width: 500px) {
+    .service-item {
+        width: 100%; /* 1 item per row on very small screens */
+    }
+}
 
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center;     /* Center items horizontally */
+    height: 100vh;           /* Full height of the viewport */
+}
+
+.item {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer: */
 footer {
     background-color: #333;
     color: #fff;
-    padding: 1.5rem 0;
+    padding: 1rem;
     text-align: center;
+    font-size: 0.9rem;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
 }
