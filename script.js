@@ -1,117 +1,62 @@
-let currentIndex = 0;
-const sections = document.querySelectorAll('.slide-section');
-
-// Function to scroll to the next section
-function scrollToSection(index) {
-    sections[index].scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
-}
-
-// Add event listener to detect scroll
-window.addEventListener('wheel', (event) => {
-    if (event.deltaY > 0) {
-        // Scroll down
-        if (currentIndex < sections.length - 1) {
-            currentIndex++;
-            scrollToSection(currentIndex);
-        }
-    } else {
-        // Scroll up
-        if (currentIndex > 0) {
-            currentIndex--;
-            scrollToSection(currentIndex);
-        }
-    }
-});
-
-// Function to reveal sections on scroll
-function revealOnScroll() {
+document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.slide-section');
-    const serviceItems = document.querySelectorAll('.service-item');
-
-    sections.forEach(section => {
-        const windowHeight = window.innerHeight;
-        const sectionTop = section.getBoundingClientRect().top;
-        const revealPoint = 150;
-
-        if (sectionTop < windowHeight - revealPoint) {
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
-        }
-    });
-
-    serviceItems.forEach(item => {
-        const windowHeight = window.innerHeight;
-        const itemTop = item.getBoundingClientRect().top;
-        const revealPoint = 150;
-
-        if (itemTop < windowHeight - revealPoint) {
-            item.style.opacity = '1';
-            item.style.transform = 'translateX(0)';
-        }
-    });
-}
-
-// Event listener for scroll event
-window.addEventListener('scroll', revealOnScroll);
-
-// Initial check in case sections are already in view
-revealOnScroll();
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Add smooth scroll behavior to navigation links
-    const links = document.querySelectorAll('nav ul li a');
-
-    links.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent default anchor click behavior
-            const targetId = link.getAttribute('href').substring(1); // Get the target section ID
-            const targetSection = document.getElementById(targetId);
-
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth', // Smooth scroll
-                    block: 'start' // Align to the start of the section
-                });
-            }
-        });
-    });
-});
-
-// Enhanced Scrolling
-document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.scroll-link');
-
-    links.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent default anchor link behavior
-            const targetId = link.getAttribute('href').substring(1); // Get the target section id
-            const targetElement = document.getElementById(targetId);
-
-            // Smoothly scroll to the target section
-            window.scrollTo({
-                top: targetElement.offsetTop,
-                behavior: 'smooth'
-            });
-        });
-    });
-});
-
-// Mobile Handling
-
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const navMenu = document.getElementById('nav-menu');
-    const sections = document.querySelectorAll('section');
     let currentIndex = 0;
     let touchStartY = 0;
 
-    hamburgerBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+    // Function to scroll to a specific section
+    function scrollToSection(index) {
+        if (index >= 0 && index < sections.length) {
+            sections[index].scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Event listener for mouse scroll
+    window.addEventListener('wheel', (event) => {
+        if (event.deltaY > 0) {
+            // Scroll down
+            if (currentIndex < sections.length - 1) {
+                currentIndex++;
+                scrollToSection(currentIndex);
+            }
+        } else {
+            // Scroll up
+            if (currentIndex > 0) {
+                currentIndex--;
+                scrollToSection(currentIndex);
+            }
+        }
     });
 
+    // Function to reveal sections and service items on scroll
+    function revealOnScroll() {
+        const revealPoint = 150;
+        const windowHeight = window.innerHeight;
+
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            if (sectionTop < windowHeight - revealPoint) {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }
+        });
+
+        const serviceItems = document.querySelectorAll('.service-item');
+        serviceItems.forEach(item => {
+            const itemTop = item.getBoundingClientRect().top;
+            if (itemTop < windowHeight - revealPoint) {
+                item.style.opacity = '1';
+                item.style.transform = 'translateX(0)';
+            }
+        });
+    }
+
+    // Event listener for scroll to reveal sections
+    window.addEventListener('scroll', revealOnScroll);
+
+    // Initial check to reveal sections on page load
+    revealOnScroll();
+
+    // Smooth scroll behavior for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -121,7 +66,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Swipe handling
+    // Mobile handling for hamburger menu
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navbar = document.querySelector('.navbar');
+
+    hamburgerBtn.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+    });
+
+    // Swipe handling for mobile
     document.addEventListener('touchstart', (e) => {
         touchStartY = e.touches[0].clientY;
     });
@@ -144,54 +97,30 @@ document.addEventListener('DOMContentLoaded', () => {
     function scrollToNextSection() {
         if (currentIndex < sections.length - 1) {
             currentIndex++;
-            sections[currentIndex].scrollIntoView({ behavior: 'smooth' });
+            scrollToSection(currentIndex);
         }
     }
 
     function scrollToPreviousSection() {
         if (currentIndex > 0) {
             currentIndex--;
-            sections[currentIndex].scrollIntoView({ behavior: 'smooth' });
+            scrollToSection(currentIndex);
         }
     }
-});
 
-    // Add smooth scroll behavior for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+    // Disable scroll restoration to prevent scroll jumping
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
+    // Home section swipe detection (using Hammer.js)
+    if (typeof Hammer !== 'undefined') {
+        const homeSection = document.getElementById('home');
+        const mc = new Hammer(homeSection);
+        mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+
+        mc.on('swipeup', () => {
+            scrollToNextSection();
         });
-    });
-
-
-// Disable scroll restoration
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
-
-// home
-
-document.addEventListener('DOMContentLoaded', function() {
-    var homeSection = document.getElementById('home');
-    var mc = new Hammer(homeSection);
-  
-    mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-  
-    mc.on('swipeup', function() {
-      // Scroll to the next section
-      window.scrollTo({
-        top: window.innerHeight,
-        behavior: 'smooth'
-      });
-    });
-  });
-
-  document.getElementById('hamburger-btn').addEventListener('click', function() {
-    const navbar = document.querySelector('.navbar');
-    navbar.classList.toggle('active');
+    }
 });
-
-  

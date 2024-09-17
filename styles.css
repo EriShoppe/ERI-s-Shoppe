@@ -50,17 +50,97 @@ header {
     color: #fff;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
-    display: none;
+    position: fixed; /* Fixed position for both desktop and mobile */
+    top: 10px;
+    left: 10px;
+    z-index: 1001; /* Ensure it's above other elements */
 }
 
 .hamburger:hover {
     transform: scale(1.1);
 }
 
-.nav.active {
-    transform: translateX(0);
+/* Hamburger Button */
+.hamburger {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
     transition: transform 0.3s ease-in-out;
+    position: fixed; /* Fixed position for both desktop and mobile */
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Align to the left */
+    z-index: 1001; /* Ensure it's above other elements */
 }
+
+.hamburger:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation Menu */
+.navbar {
+    position: fixed; /* Fixed position to stay on top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto; /* Adjust height as needed */
+    background: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Hide overflow */
+    transition: transform 0.3s ease, height 0.3s ease;
+    transform: translateY(-100%); /* Initially hidden */
+    z-index: 1000; /* Ensure it's below the hamburger but above content */
+}
+
+.navbar.active {
+    transform: translateY(0); /* Slide down when active */
+    height: 60px; /* Height of the navigation menu */
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    align-items: center;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #f0a500;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show hamburger menu icon on mobile */
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
 
 /* Full-screen video background */
 
@@ -135,15 +215,13 @@ header {
 
 /* Style for the navigation bar */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-    padding: 2px;
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
     z-index: 1000;
-    transition: background-color 0.3s ease;
-  }
+}
   
   /* Style for the navigation menu */
   .nav-menu {
@@ -200,15 +278,8 @@ header {
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
-        background: #333;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
+        background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+        z-index: 1000;
     }
 
     .navbar.active {
@@ -548,7 +619,5 @@ footer {
     padding: 1rem;
     text-align: center;
     font-size: 0.9rem;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
+    position: relative
 }
