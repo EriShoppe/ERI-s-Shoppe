@@ -151,7 +151,14 @@ header {
     display: flex;
     justify-content: left;
   }
-  
+
+.navbar .nav-menu {
+    display: none; /* Hide by default */
+}
+
+.navbar.active .nav-menu {
+    display: flex; /* Show when .active class is added */
+}
   /* Style for individual menu items */
   .nav-menu li {
     margin: 0 15px;
