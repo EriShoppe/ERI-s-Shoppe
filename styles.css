@@ -24,15 +24,20 @@ body {
 /* Header and Navigation */
 
 header {
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
     overflow-x: hidden;
-    justify-content: center;  /* Center horizontally */
-    align-items: center;      /* Center vertically */
+    justify-content: center;
+    align-items: center;
     line-height: 1.6;
     scroll-snap-type: y mandatory;
-    margin: 0;
-    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 
 
@@ -45,6 +50,7 @@ header {
     color: #fff;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
+    display: none;
 }
 
 .hamburger:hover {
@@ -197,6 +203,10 @@ header {
         align-items: center;
         z-index: 1000;
     }
+    
+    .navbar {
+        display: none; /* Hide regular navigation menu on mobile */
+    }
 
     .nav.active {
         transform: translateX(0);
@@ -238,13 +248,15 @@ header {
 
 
 section {
-    height: 100vh; /* Full viewport height */
-    scroll-snap-align: start; /* Snap to section start */
+    height: 100vh;
+    scroll-snap-align: start;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .slide-section {
@@ -336,12 +348,12 @@ section {
 
 #home {
     position: relative;
-    /* Other styles for your home section */
+    height: 100vh;
   }
   
   .swipe-prompt {
     position: absolute;
-    bottom: 20px; /* Adjust as needed */
+    bottom: 120px; /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
     color: #fff; /* Or any color that contrasts well with your background */
@@ -364,7 +376,6 @@ section {
 
 .services-section {
     background-color: #f9f9f9;
-    align-items: center;
     justify-content: center;
     text-align: center;
     display: flex;
@@ -410,7 +421,8 @@ section {
 }
 
 .service-item img {
-    width: 100%;
+    height: 200px;
+    object-fit: cover;
     border-radius: 10px;
     margin-bottom: 1rem;
 }
@@ -422,21 +434,22 @@ section {
 }
 
 .service-item:hover {
-    transform: translateY(-5px);
+    transform: scale(1.03);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #f0f0f0;
 }
 
 .service-item h3 {
     font-size: 1.5rem;
-    margin: 0.5rem 0;
     color: #333;
+    margin-top: 0.5rem;
 }
 
 .service-item p {
     font-size: 1rem;
     color: #666;
-    margin: 0.5rem 0;
 }
+
 /* About Section */
 
 .about-section {
