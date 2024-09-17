@@ -188,4 +188,10 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+
+  document.getElementById('hamburger-btn').addEventListener('click', function() {
+    const navbar = document.querySelector('.navbar');
+    navbar.classList.toggle('active');
+});
+
   
