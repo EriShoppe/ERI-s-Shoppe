@@ -215,49 +215,51 @@ header {
 
 /* Style for the navigation bar */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    display: flex;
+    justify-content: space-between; /* Align items */
+    align-items: center;
+    padding: 0 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
     z-index: 1000;
 }
   
   /* Style for the navigation menu */
+
   .nav-menu {
     list-style: none;
     display: flex;
-    justify-content: left;
+    gap: 20px;
+    justify-content: center;
   }
 
 .navbar .nav-menu {
-    display: none; /* Hide by default */
+    display: none;
 }
 
 .navbar.active .nav-menu {
-    display: flex; /* Show when .active class is added */
+    display: flex;
 }
-  /* Style for individual menu items */
-  .nav-menu li {
-    margin: 0 15px;
-  }
-  
+
+.nav-menu li {
+        list-style: none;
+    }
+
   /* Style for the links */
   .nav-menu a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease;
-  }
-  
+    font-size: 1rem;
+    transition: color 0.3s;
+}
   /* Hover effect */
   .nav-menu a:hover {
-    color: #f0a500; /* Change the color on hover */
+    color: #f0a500;
   }
   
   /* Transparent effect when not hovering */
   .navbar:not(:hover) {
-    background-color: rgba(0, 0, 0, 0.096);
+    background-color: rgba(0, 0, 0, 0.026);
   }
   
   /* Section styling */
@@ -270,28 +272,25 @@ header {
 
 @media (max-width: 768px) {
     .hamburger {
-        display: block; /* Show hamburger menu icon on mobile */
+        display: block;
     }
 
     .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-        z-index: 1000;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .navbar.active {
-        transform: translateX(0);
+    .navbar.active .nav-menu {
+        display: flex;
     }
 
     .nav-menu {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: center;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        display: none;
     }
+
 
     .nav-menu li {
         margin: 1rem 0;
@@ -305,6 +304,12 @@ header {
 
     .nav-menu a:hover {
         text-decoration: underline;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu a {
+        font-size: 0.9rem;
     }
 }
 
