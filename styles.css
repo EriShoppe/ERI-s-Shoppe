@@ -77,7 +77,7 @@ header {
 
 .swipe-prompt {
     position: absolute; /* Positions the element absolutely */
-    bottom: 10px; /* Positions it 10px from the bottom */
+    bottom: 2px; /* Positions it 10px from the bottom */
     justify-content: center; /* Centers horizontally */
     transform: translateX(-50%); /* Centers the element */
     color: #fff; /* Text color */
@@ -107,13 +107,10 @@ header {
 .home-section {
     background-color: #2c3e50; /* Dark background */
     color: #ffffff; /* White text */
-    display: flex; /* Flexbox layout */
-    flex-direction: column; /* Stacks items vertically */
-    align-items: center; /* Centers items horizontally */
-    justify-content: center; /* Centers items vertically */
     text-align: left; /* Aligns text to the left */
     height: 100vh; /* Full viewport height */
-    padding: 2%; /* Padding around content */
+    padding: 3%; /* Padding around content */
+    left: 20%;
 }
 
 .home-section h1 {
@@ -123,12 +120,37 @@ header {
 .home-section p {
     font-size: 1.2rem; /* Sets font size for paragraphs */
     margin: 1rem 0 2rem; /* Margin around paragraphs */
+    text-wrap: wrap;
+    text-align: left;
+    padding: 0;
+    margin: 70px 0px;
+
 }
 
 .home-section a {
     font-size: 1.2rem; /* Font size for links */
     margin: 1rem 0 2rem; /* Margin around links */
 }
+
+.nextSectionBtn {
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 200px; /* Positioned at the bottom */
+    left: 20%; /* Centered horizontally */
+    transform: translateX(-50%);
+}
+
+.nextSectionBtn:hover {
+    background-color: #16a085;
+}
+
 
 /* Services Section */
 .services-section {

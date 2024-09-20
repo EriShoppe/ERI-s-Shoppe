@@ -110,6 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 document.addEventListener('DOMContentLoaded', () => {
     const servicesSection = document.querySelector('.services-section');
     
@@ -123,5 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Smooth scroll to section 3 (or section 1 if you prefer)
             document.querySelector('#section3').scrollIntoView({ behavior: 'smooth' });
         }
+    });
+});
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+document.getElementById('servicesBtn').addEventListener('click', function() {
+    // Smooth scroll to the next section (contact section)
+    document.querySelector('.services-section').scrollIntoView({
+        behavior: 'smooth'
     });
 });
