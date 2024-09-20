@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Header</title>
-    <link rel="stylesheet" href="Metalab_Inspired.css">
+    <title>Interactive Header with Clickable Catalog</title>
+    <link rel="stylesheet" href="Metalab_Inspired.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
 
     <div class="video-container">
         <video autoplay muted loop id="bg-video">
-            <source src="Background.mp4" type="video/mp4">
+            <source src="Videos/background.mp4" type="video/mp4"> <!-- Replace with your video file -->
             Your browser does not support the video tag.
         </video>
     </div>
@@ -19,10 +19,10 @@
         <nav class="interactive-header">
             <div class="menu">
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Our Services</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#services" class="nav-link">Our Services</a></li>
+                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
                 </ul>
             </div>
             <div class="email-btn">
@@ -43,7 +43,26 @@
 
     <section id="services">
         <h1>Our Services</h1>
-        <p>Discover the services we offer.</p>
+        <p>Discover the services we offer below:</p>
+
+        <div class="catalog">
+            <!-- Each catalog item is now wrapped in an <a> tag linking to another HTML file -->
+            <a href="services1.html" class="catalog-item" data-image="rogstrixg18/3.jpg">
+                <img src="rogstrixg18/3.jpg" alt="Service 1">
+                <h3>IT Solutions</h3>
+                <p>A brief description of Service One. Click to learn more.</p>
+            </a>
+            <a href="services2.html" class="catalog-item" data-image="Images/Water_Solutions.jpg">
+                <img src="Images/Water_Solutions.jpg" alt="Service 2">
+                <h3>Water Solutions</h3>
+                <p>A brief description of Service Two. Click to learn more.</p>
+            </a>
+            <a href="services3.html" class="catalog-item" data-image="Images/Services.jpg">
+                <img src="Images/Services.jpg" alt="Service 3">
+                <h3>Services</h3>
+                <p>A brief description of Service Three. Click to learn more.</p>
+            </a>
+        </div>
     </section>
 
     <section id="contact">
@@ -51,5 +70,6 @@
         <p>Get in touch with us.</p>
     </section>
 
-    <script src="metalab_Inspired.js"></script>
+    <script src="metalab_Inspired.js"></script> <!-- Link to the external JS file -->
+</body>
 </html>
