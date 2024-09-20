@@ -110,3 +110,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const servicesSection = document.querySelector('.services-section');
+    
+    // Scroll to next section when reaching the bottom of the services section
+    servicesSection.addEventListener('scroll', () => {
+        const scrollTop = servicesSection.scrollTop;
+        const scrollHeight = servicesSection.scrollHeight;
+        const offsetHeight = servicesSection.offsetHeight;
+
+        if (scrollTop + offsetHeight >= scrollHeight) {
+            // Smooth scroll to section 3 (or section 1 if you prefer)
+            document.querySelector('#section3').scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});

@@ -132,8 +132,10 @@ header {
 
 /* Services Section */
 .services-section {
-    background-color: #f9f9f9; /* Light background color */
-    padding: 50px 20px; /* Padding for content */
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    height: 80vh; /* Adjust as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .services-section h2 {
@@ -230,6 +232,7 @@ footer {
 
 @media (max-width: 500px) {
     .service-item {
-        width: 100%; /* 1 item per row on very small screens */
+        width: 20%; /* 1 item per row on very small screens */
     }
 }
+
