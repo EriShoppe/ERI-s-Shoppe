@@ -112,21 +112,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Ensure this script runs after the DOM has loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const servicesSection = document.querySelector('.services-section');
-    
-    // Scroll to next section when reaching the bottom of the services section
-    servicesSection.addEventListener('scroll', () => {
-        const scrollTop = servicesSection.scrollTop;
-        const scrollHeight = servicesSection.scrollHeight;
-        const offsetHeight = servicesSection.offsetHeight;
-
-        if (scrollTop + offsetHeight >= scrollHeight) {
-            // Smooth scroll to section 3 (or section 1 if you prefer)
-            document.querySelector('#section3').scrollIntoView({ behavior: 'smooth' });
-        }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetSection = document.querySelector(this.getAttribute('href'));
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
     });
 });
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -135,4 +131,22 @@ document.getElementById('servicesBtn').addEventListener('click', function() {
     document.querySelector('.services-section').scrollIntoView({
         behavior: 'smooth'
     });
+});
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const servicesSection = document.querySelector('.services-section');
+
+servicesSection.addEventListener('scroll', () => {
+    const { scrollTop, scrollHeight, clientHeight } = servicesSection;
+
+    // If scrolled to the top
+    if (scrollTop === 0) {
+        scrollToSection(currentIndex - 1); // Scroll to the previous section
+    }
+    
+    // If scrolled to the bottom
+    if (scrollTop + clientHeight >= scrollHeight) {
+        scrollToSection(currentIndex + 1); // Scroll to the next section
+    }
 });

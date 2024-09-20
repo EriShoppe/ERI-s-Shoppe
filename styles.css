@@ -23,7 +23,7 @@ header {
     position: fixed; /* Fixes the header to the top of the viewport */
     top: 0; /* Positions the header at the top */
     width: 100%; /* Full width */
-    z-index: 1000; /* Ensures header is above other elements */
+    z-index: 9999; /* Ensures header is above other elements */
     transition: background-color 0.3s ease; /* Smooth transition for background color changes */
 }
 
@@ -34,6 +34,10 @@ header {
     text-align: center; /* Centers the text */
     word-wrap: break-word; /* Allows long words to break and wrap */
     overflow-wrap: break-word; /* Ensures long words will wrap */
+}
+
+.slide-section {
+    margin-top: 80px; /* Adjust to ensure sections don't overlap the navbar */
 }
 
 .navbar {
@@ -156,9 +160,12 @@ header {
 .services-section {
     background-color: #5c0b0b;
     padding: 50px 20px;
-    height: 100vh; /* Adjust as needed */
+    scroll-snap-align: unset;
+    max-height: 100vh; /* Adjust the height as needed */
     overflow-y: auto; /* Enable vertical scrolling */
-    overflow: hidden; /* Prevent overflow */
+    overflow-x: auto;
+    overflow: auto;
+    scroll-snap-align: none;
 }
 
 .services-section h2 {
@@ -268,16 +275,6 @@ footer {
 @media (max-width: 500px) {
     .service-item {
         width: 5%; /* 1 item per row on very small screens */
-    }
-}
-
-@media (max-width: 768px) {
-    .services-section {
-        overflow-y: auto; /* Allow scrolling on smaller screens */
-    }
-
-    .contact-section {
-        display: none; /* Hide contact section when services are visible */
     }
 }
 
