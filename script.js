@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function scrollToSection(index) {
         if (index >= 0 && index < sections.length) {
             sections[index].scrollIntoView({ behavior: 'smooth' });
+            localStorage.setItem('currentSlide', index); // Store current slide index
         }
     }
 
@@ -37,15 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (sectionTop < windowHeight - revealPoint) {
                 section.style.opacity = '1';
                 section.style.transform = 'translateY(0)';
-            }
-        });
-
-        const serviceItems = document.querySelectorAll('.service-item');
-        serviceItems.forEach(item => {
-            const itemTop = item.getBoundingClientRect().top;
-            if (itemTop < windowHeight - revealPoint) {
-                item.style.opacity = '1';
-                item.style.transform = 'translateX(0)';
             }
         });
     }
@@ -113,15 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
         history.scrollRestoration = 'manual';
     }
 
-    // Home section swipe detection (using Hammer.js)
-    if (typeof Hammer !== 'undefined') {
-        const homeSection = document.getElementById('home');
-        const mc = new Hammer(homeSection);
-        mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-
-        mc.on('swipeup', () => {
-            scrollToNextSection();
-        });
+    // Load current slide from local storage on page load
+    const currentSlide = localStorage.getItem('currentSlide');
+    if (currentSlide) {
+        currentIndex = parseInt(currentSlide, 10);
+        scrollToSection(currentIndex); // Navigate to the stored slide index
     }
 });
 

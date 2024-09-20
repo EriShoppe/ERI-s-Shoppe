@@ -34,8 +34,8 @@ button:hover {
 
 .gallery-item {
     position: relative;
-    width: 30vw;
-    height: 30vh;
+    width: 300px;
+    height: 200px;
     overflow: hidden;
     cursor: pointer;
 }

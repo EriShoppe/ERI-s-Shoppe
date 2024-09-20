@@ -81,6 +81,8 @@ header {
 /* Navigation Menu */
 .navbar {
     position: fixed; /* Fixed position to stay on top */
+    display: flex;
+    flex-wrap: wrap;
     top: 0;
     left: 0;
     width: 100%;
@@ -216,13 +218,32 @@ header {
 /* Style for the navigation bar */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Align items */
+    justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 30px;
     background: rgba(0, 0, 0, 0.8);
     color: white;
     z-index: 1000;
+    overflow-x: auto;
+    white-space: nowrap;
 }
+
+.navbar a {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Add padding for clickable areas */
+    font-size: 1.2em; /* Base font size */
+    flex: 1;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .navbar a {
+        font-size: 1em;
+        padding: 8px 10px;
+    }
+}
+
   
   /* Style for the navigation menu */
 
@@ -511,7 +532,8 @@ section {
 }
 
 .service-item img {
-    height: 200px;
+    height: 40vh;
+    width: 100%;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 1rem;
@@ -634,5 +656,5 @@ footer {
     padding: 1rem;
     text-align: center;
     font-size: 0.9rem;
-    position: relative
+    position: fixed;
 }
