@@ -6,37 +6,33 @@
     <title>ERI's Shoppe</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <button class="hamburger" id="hamburger-btn">☰</button>
         <nav class="navbar">
             <ul class="nav-menu">
                 <li><a href="#home" class="scroll-link">Welcome</a></li>
-                <li><a href="#services" class="scroll-link">My Services</a></li>
-                <li><a href="#contact" class="scroll-link">My Contact details</a></li>
+                <li><a href="#services" class="scroll-link">Services</a></li>
+                <li><a href="#contact" class="scroll-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Page content -->
-   <!-- Full-screen video background -->
-   <section id="home" class="slide-section video-background">
-    <video autoplay muted loop class="video-element">
-        <source src="" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="video-overlay home-section section">
-            <h1>Welcome to ERI's Shoppe</h1>
-            <p>We offer a wide range of solutions to meet your needs. Let's build something great together!</p>
+    <section id="home" class="home-section slide-section video-background">
+        <video autoplay muted loop class="video-element">
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="home-section section">
+            <h1>Welcome</h1>
+            <p class="description">We offer a wide range of solutions to meet your needs. Let's build something great together!</p>
             <br>
-            <a href="#services" class="btn">Discover!!</a>
+            <button class="btn" id="nextSlideBtn">Discover !!</button>
+
         </div>
         <div class="swipe-prompt">
-            <p2>^^ Swipe up or scroll down vv</p2>
+            <p>^^ Swipe up or scroll down vv</p>
         </div>
     </section>
 
@@ -88,7 +84,5 @@
     </footer>
 
     <script src="script.js"></script>
-    
-
 </body>
 </html>

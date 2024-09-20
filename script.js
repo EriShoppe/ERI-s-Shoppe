@@ -58,13 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mobile handling for hamburger menu
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const navbar = document.querySelector('.navbar');
-
-    hamburgerBtn.addEventListener('click', () => {
-        navbar.classList.toggle('active');
-    });
 
     // Swipe handling for mobile
     document.addEventListener('touchstart', (e) => {
@@ -111,7 +104,9 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIndex = parseInt(currentSlide, 10);
         scrollToSection(currentIndex); // Navigate to the stored slide index
     }
+
+    // Push a new state to avoid going back to the previous page
+    window.history.pushState(null, null, window.location.href);
+
 });
 
-// Push a new state to avoid going back to the previous page
-window.history.pushState(null, null, window.location.href);
