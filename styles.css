@@ -145,10 +145,11 @@ header {
 }
 
 .catalog {
-    display: flex; /* Flexbox for layout */
-    justify-content: center; /* Centers content */
-    flex-wrap: wrap; /* Allows wrapping of items */
-    gap: 20px; /* Space between items */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 20px; /* Add some padding at the bottom */
 }
 
 .service-item {
@@ -163,8 +164,8 @@ header {
 }
 
 .service-item img {
-    height: 40vh; /* Fixed height for images */
-    width: 100%; /* Full width */
+    height: 10vh; /* Fixed height for images */
+    width: 30vh; /* Full width */
     object-fit: cover; /* Covers the area without distortion */
     border-radius: 10px; /* Rounded corners for images */
     margin-bottom: 1rem; /* Margin below images */
@@ -232,7 +233,7 @@ footer {
 
 @media (max-width: 500px) {
     .service-item {
-        width: 20%; /* 1 item per row on very small screens */
+        width: 5%; /* 1 item per row on very small screens */
     }
 }
 
