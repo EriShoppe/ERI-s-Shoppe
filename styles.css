@@ -165,8 +165,8 @@ header {
 }
 
 .service-item img {
-    height: 10vh; /* Fixed height for images */
-    width: 30vh; /* Full width */
+    height: 40vh; /* Fixed height for images */
+    width: 100%; /* Full width */
     object-fit: cover; /* Covers the area without distortion */
     border-radius: 10px; /* Rounded corners for images */
     margin-bottom: 1rem; /* Margin below images */
@@ -220,10 +220,11 @@ footer {
 }
 
 /* Mobile View */
+
 @media (max-width: 768px) {
     .nav-menu {
-        flex-direction: column; /* Stack navbar items vertically */
-        align-items: center; /* Center align items */
+        flex-direction: row; /* Stack navbar items vertically */
+        align-items: end; /* Center align items */
         gap: 10px; /* Space between items */
     }
 
