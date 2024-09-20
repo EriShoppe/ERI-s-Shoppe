@@ -159,29 +159,40 @@ header {
 /* Services Section */
 .services-section {
     background-color: #5c0b0b;
-    padding: 50px 20px;
-    scroll-snap-align: unset;
     max-height: 100vh; /* Adjust the height as needed */
-    overflow-y: auto; /* Enable vertical scrolling */
-    overflow-x: auto;
-    overflow: auto;
-    scroll-snap-align: none;
+    height: 100vh;
 }
 
 .services-section h2 {
     font-size: 2.5rem; /* Large font size for headings */
     color: #ffffff; /* Dark text color */
-    margin-bottom: 20px; /* Margin below headings */
+    margin-bottom: 50px; /* Margin below headings */
 }
 
 .service-item h3 {
     font-size: 1.2rem; /* Smaller service title */
     margin: 10px 0; /* Adjust margin around the title */
+    color: #f0a500;
+}
+
+.service-item h3:hover {
+    font-size: 1.2rem; /* Smaller service title */
+    margin: 10px 0; /* Adjust margin around the title */
+    color: #f0a500;
+    text-decoration: underline;
 }
 
 .service-item p {
     font-size: 0.9rem; /* Smaller description text */
     line-height: 1.4; /* Adjust line height for readability */
+    color: #f0a500;
+}
+
+.service-item p:hover {
+    font-size: 0.9rem; /* Smaller description text */
+    line-height: 1.4; /* Adjust line height for readability */
+    color: #f0a500;
+    text-decoration: underline;
 }
 
 .catalog {
@@ -198,14 +209,14 @@ header {
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
-    width: calc(33.333% - 40px); /* Responsive width calculation */
-    max-width: 300px; /* Maximum width */
-    text-align: left; /* Left align text */
+    max-width: 150px; /* Maximum width */
+    max-height: 150px;
+    text-align: center; /* Left align text */
 }
 
 .service-item img {
-    height: 40vh; /* Fixed height for images */
-    width: 100%; /* Full width */
+    height: 100px; /* Fixed height for images */
+    width: 100px; /* Full width */
     object-fit: cover; /* Covers the area without distortion */
     border-radius: 10px; /* Rounded corners for images */
     margin-bottom: 1rem; /* Margin below images */
@@ -222,7 +233,7 @@ header {
     color: #fff; /* White text */
     padding: 4rem 2rem; /* Padding for content */
     text-align: center; /* Center align text */
-    height: 100vh; /* Full viewport height */
+    height: 93vh; /* Full viewport height */
     display: flex; /* Flexbox layout */
     flex-direction: column; /* Stacks items vertically */
     justify-content: center; /* Centers items vertically */
