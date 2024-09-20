@@ -390,8 +390,10 @@ section {
 /* Home Section */
 
 .home-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
-    color: #fff;
+    background-image: url(Eris.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #494945;
     display: flex;
     align-items: center;
     text-align: center;
@@ -399,9 +401,17 @@ section {
 
 .home-section .content h1 {
     font-size: 3rem;
+    
+}
+
+.home-section h1 {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .home-section p {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 1.2rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -411,7 +421,7 @@ section {
 
 .btn {
     padding: 3px;
-    background-color: #3498db;
+    background-color: #3498db52;
     color: #fff;
     border: none;
     border-radius: 5px;

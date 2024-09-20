@@ -124,3 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Push a new state to avoid going back to the previous page
+window.history.pushState(null, null, window.location.href);

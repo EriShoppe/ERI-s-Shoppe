@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Basic gallery layout */
+.gallery {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    justify-content: center;
+}
+
+.gallery-item {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Image styling */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Description styling */
+.description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    color: white;
+    padding: 10px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(100%); /* Move the description off the view initially */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth slide and fade-in effect */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Show the description on hover */
+.gallery-item:hover .description {
+    opacity: 1;
+    transform: translateY(0); /* Slide the description up into view */
+}
+
+@keyframes slideShadow {
+    0% {
+        box-shadow: -20px 0px 40px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        box-shadow: 20px 0px 40px rgba(0, 0, 0, 0.3);
+    }
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+p {
+    font-size: 16px;
+    color: #f1f1f1;
+}
+
+/* Modal styles */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-gallery {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-gallery img {
+    width: 30%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal-gallery img:hover {
+    transform: scale(1.2);
+}
+
+
+.close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes imageFade {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 100%;
+    }
+    
+    .gallery-item img,
+    .description {
+        width: 100%;
+    }
+
+    .description {
+        text-align: center;
+    }
+
+    .modal-gallery img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Fullscreen modal styles */
+.fullscreen-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;  /* Center the image horizontally */
+    padding-top: 60px;   /* Add some space on top for the close button */
+}
+
+.fullscreen-modal-content {
+    margin: auto;
+    display: inline-block; /* Ensure it's inline to keep original ratio */
+    max-width: 100%;       /* Max width of the screen */
+    max-height: 100%;      /* Max height of the screen */
+    object-fit: contain;   /* Maintain aspect ratio without stretching */
+    animation: fadeIn 0.5s ease;
+}
+
+/* Fullscreen modal close button */
+.fullscreen-modal .close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* Add fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* Modal gallery hover effect */
+.modal-gallery img {
+    width: 30%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal-gallery img:hover {
+    transform: scale(1.2);
+}
