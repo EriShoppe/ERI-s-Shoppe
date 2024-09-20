@@ -134,8 +134,9 @@ header {
 .services-section {
     background-color: #f9f9f9;
     padding: 50px 20px;
-    height: 80vh; /* Adjust as needed */
+    height: 100vh; /* Adjust as needed */
     overflow-y: auto; /* Enable vertical scrolling */
+    overflow: hidden; /* Prevent overflow */
 }
 
 .services-section h2 {
@@ -218,7 +219,7 @@ footer {
     width: 100%; /* Full width */
 }
 
-/* Responsive Styles */
+/* Mobile View */
 @media (max-width: 768px) {
     .nav-menu {
         flex-direction: column; /* Stack navbar items vertically */
@@ -234,6 +235,16 @@ footer {
 @media (max-width: 500px) {
     .service-item {
         width: 5%; /* 1 item per row on very small screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .services-section {
+        overflow-y: auto; /* Allow scrolling on smaller screens */
+    }
+
+    .contact-section {
+        display: none; /* Hide contact section when services are visible */
     }
 }
 
