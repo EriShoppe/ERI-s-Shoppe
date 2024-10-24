@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    background-image: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnhzcGc0eW94eHI2dWZsYjVyajg3MW00YXFzMzNrd20wYXB3Nm9tZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1X6XcN2oxS08VrquP/giphy.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.email-btn {
+    display: inline-block;
+    position: fixed; /* Set position relative for absolute positioning of hover text */
+    top: 20px;
+    right: 20px;
+    background-image: url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXo0eHNweGJhMHAyNHIyNXo2NGZkdm8ydW1hcjZ1d3FvMW5xem9hdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K5PQN3TQ2aUD6QkQi8/giphy.webp);
+    background-color: #f0a500;
+    background-size: cover;
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+}
+
+.hover-text {
+    display: none; /* Initially hide the hover text */
+    position: absolute; /* Position it absolutely within the button */
+    top: 110%; /* Position it below the button */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for exact center */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white; /* Text color */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 12px; /* Adjust font size */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+}
+
+/* Show the hover text on hover */
+.email-btn:hover .hover-text {
+    display: block; /* Show the hover text when hovering */
+}
+
+
+.email-btn a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between icon and text */
+}
+
+.email-btn:hover {
+    background-color: #e58900;
+}
+
+.email-btn a img {
+    width: 20px; /* Adjust size of email icon */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.email-btn a:hover img {
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
+/* Basic gallery layout */
+.gallery {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    width: 30vw;
+    height: 30vh;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Image styling */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Description styling with RGB gradient */
+.description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)); /* RGB gradient */
+    color: white;
+    padding: 10px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(100%); /* Move the description off the view initially */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth slide and fade-in effect */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Show the description on hover */
+.gallery-item:hover .description {
+    opacity: 1;
+    transform: translateY(0); /* Slide the description up into view */
+}
+
+@keyframes slideShadow {
+    0% {
+        box-shadow: -20px 0px 40px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        box-shadow: 20px 0px 40px rgba(0, 0, 0, 0.3);
+    }
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+p {
+    font-size: 16px;
+    color: #f1f1f1;
+}
+
+/* Modal styles */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    background-color: white;
+    max-height: 90vh; /* Limit height of modal */
+    overflow-y: auto; /* Allow vertical scrolling */
+    display: flex;
+    flex-direction: row; /* Stack content vertically */
+}
+
+.modal-gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px; /* Space between gallery and description */
+}
+
+.modal-description {
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.modal-description h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #007BFF;
+}
+
+.modal-description p {
+    font-size: 16px;
+    color: #555;
+}
+
+.modal-gallery img {
+    width: calc(30% - 10px);
+    height: 200px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+.modal-gallery img:hover {
+    transform: scale(1.2);
+}
+
+
+.close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes imageFade {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 100%;
+    }
+    
+    .gallery-item img,
+    .description {
+        width: 100%;
+    }
+
+    .description {
+        text-align: center;
+    }
+
+    .modal-gallery img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Fullscreen modal styles */
+.fullscreen-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;  /* Center the image horizontally */
+    padding-top: 60px;   /* Add some space on top for the close button */
+}
+
+.fullscreen-modal-content {
+    text-align: center;
+    max-width: 90%;       /* Maximum width of the content (image + description) */
+    height: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column; /* Stack the image and description vertically */
+}
+
+.fullscreen-image {
+    max-width: 100%;   /* Image takes the full width */
+    max-height: 80vh;  /* Adjust to avoid overflow */
+    object-fit: contain;
+}
+
+.fullscreen-description {
+    margin-top: 20px;  /* Space between the image and the description */
+    color: #fff;       /* White text for visibility on dark background */
+    font-size: 18px;   /* Adjust font size */
+    text-align: center;  /* Align text to the left */
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-radius: 8px;
+}
+
+/* Fullscreen modal close button */
+.fullscreen-modal .close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* Add fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* Modal gallery hover effect */
+.modal-gallery img {
+    width: 30%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal-gallery img:hover {
+    transform: scale(1.2);
+}
