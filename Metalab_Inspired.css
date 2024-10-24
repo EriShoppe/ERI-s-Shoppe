@@ -106,10 +106,12 @@ html {
     background-size: cover; /* Cover the entire area */
     background-position: center; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
+    height: 800px; /* Set a fixed height for the section */
 }
 
 #about {
     background-color: rgba(231, 76, 60, 0.6);
+    height: 800px; /* Set a fixed height for the section */
 }
 
 #services {
@@ -232,7 +234,15 @@ section {
 }
 
 #contact {
-    background-color: rgba(155, 89, 182, 0.6);
+    background-image: url(https://lh3.googleusercontent.com/pw/AP1GczOrffT4FFM5RpIrEjLbInDBzLTSMpJwE9JUj-hdbSHWCvMIYPPo6tdeXeAERWGv0lwc5a43N4-YchiFRkj7T8JRv77-uycEx7Bb6pElRsq4s1uU4S0egMKzGoQ4AYRTmqHH029Esz6Yuu7DtU2uo5DL1g=w870-h870-s-no-gm?authuser=0ttps://photos.app.goo.gl/SRJdTAx3nym6sMcaA); /* Replace with your GIF URL */
+    background-size: cover; /* Cover the entire area */
+    background-position: top; /* Center the GIF */
+    background-repeat: no-repeat; /* Prevent the GIF from repeating */
+    height: 800px; /* Set a fixed height for the section */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    color: white; /* Text color for better visibility */
 }
 
     .social-media {
