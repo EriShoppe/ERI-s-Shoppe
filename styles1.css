@@ -109,19 +109,27 @@ p {
     margin: 15% auto;
     padding: 20px;
     width: 80%;
+    max-height: 80vh; /* Limit height of modal */
+    overflow-y: auto; /* Allow vertical scrolling */
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
 .modal-gallery {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap; /* Allow images to wrap */
+    gap: 10px; /* Optional: Add some spacing between images */
 }
 
 .modal-gallery img {
-    width: 30%;
+    width: calc(30% - 10px); /* Adjust width to fit three images per row with spacing */
+    height: auto; /* Maintain aspect ratio */
     transition: transform 0.3s ease-in-out;
+    max-width: 100%; /* Ensure images don’t overflow their container */
 }
+
 
 .modal-gallery img:hover {
     transform: scale(1.2);

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Descriptions</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+
+
+    <button onclick="goToMain()">Back</button>
+
+
+    <div class="gallery">
+        <div class="gallery-item" onclick="openModal('modal1')">
+            <img src="Images/activation.jpg" alt="Image 1">
+            <div class="description">
+                <h2>Formatting and Activation</h2>
+                <p>Formats and Activates your device with the desired OS version</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openModal('modal2')">
+            <img src="Images/Programs.jpg" alt="Image 2">
+            <div class="description">
+                <h2>Programs</h2>
+                <p>This is a brief description of the second image. It explains what the image is about.</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openModal('modal3')">
+            <img src="image3.jpg" alt="Image 3">
+            <div class="description">
+                <h2>Image Title 3</h2>
+                <p>This is a brief description of the third image. It explains what the image is about.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Image 1 -->
+    <div id="modal1" class="modal">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <div class="modal-content">
+            <div class="modal-gallery">
+                <img src="Images/Format.jpg" alt="Image 1.1">
+                <img src="Images/Activation2.jpg" alt="Image 1.2">
+                <img src="Images/activation.jpg" alt="Image 1.3">
+                <img src="Images/activation.jpg" alt="Image 1.3">
+                <img src="Images/activation.jpg" alt="Image 1.3">
+                <img src="Images/activation.jpg" alt="Image 1.3">
+            </div>
+        </div>
+    </div>
+
+    <div id="fullScreenModal" class="fullscreen-modal">
+        <span class="close" onclick="closeFullScreen()">&times;</span>
+        <img id="fullScreenImage" class="fullscreen-modal-content">
+     </div>
+
+    <!-- Modal for Image 2 -->
+    <div id="modal2" class="modal">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <div class="modal-content">
+            <div class="modal-gallery">
+                <img src="image2-1.jpg" alt="Image 2.1">
+                <img src="image2-2.jpg" alt="Image 2.2">
+                <img src="image2-3.jpg" alt="Image 2.3">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Image 3 -->
+    <div id="modal3" class="modal">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <div class="modal-content">
+            <div class="modal-gallery">
+                <img src="image3-1.jpg" alt="Image 3.1">
+                <img src="image3-2.jpg" alt="Image 3.2">
+                <img src="image3-3.jpg" alt="Image 3.3">
+            </div>
+        </div>
+    </div>
+
+    <script src="Scripts1.js"></script>
+</body>
+</html>
