@@ -103,3 +103,44 @@ window.addEventListener('load', () => {
     document.body.classList.remove('fade-out');
 });
 
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+var swiper = new Swiper(".swiper-container", {
+    direction: "horizontal", // Use 'horizontal' for horizontal swiping
+    loop: false, // Set to 'true' if you want it to loop continuously
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    mousewheel: true, // Allows scrolling with mousewheel on desktops
+    keyboard: {
+      enabled: true,
+    },
+  });
+  
+  let startX = 0;
+let endX = 0;
+
+const container = document.querySelector('.horizontal-scroll-container');
+
+container.addEventListener('touchstart', (event) => {
+    startX = event.touches[0].clientX;
+});
+
+container.addEventListener('touchmove', (event) => {
+    endX = event.touches[0].clientX;
+});
+
+container.addEventListener('touchend', () => {
+    if (startX > endX + 50) {
+        // Swipe left
+        container.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
+    } else if (startX < endX - 50) {
+        // Swipe right
+        container.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
+    }
+});

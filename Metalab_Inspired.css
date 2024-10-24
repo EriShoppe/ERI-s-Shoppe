@@ -39,8 +39,8 @@ header {
 }
 
 .interactive-header:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
 }
 
 .menu ul {
@@ -100,6 +100,7 @@ html {
 }
 
 /* Sections Styles */
+
 section {
     height: 100vh;
     display: flex;
@@ -138,6 +139,26 @@ section {
 
 
 /* General styles remain the same */
+
+/* swiping */
+
+.horizontal-scroll-container {
+    display: flex; /* Use flexbox to arrange sections in a row */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Enable snapping */
+    height: 100vh; /* Full viewport height */
+}
+
+section {
+    flex: 0 0 100%; /* Each section takes full width */
+    height: 100vh; /* Each section takes full height */
+    scroll-snap-align: start; /* Snap to the start of each section */
+}
+
+/* Optional: Hide scrollbar for a cleaner look */
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+}
 
 .catalog {
     display: flex;
