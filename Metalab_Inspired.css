@@ -156,6 +156,11 @@ html {
     position: relative; /* For absolute positioning of the video */
     height: 800px; /* Set a fixed height for the section */
     overflow: hidden; /* Hide overflow to maintain structure */
+    background-image: url(https://lh3.googleusercontent.com/pw/AP1GczOrL6qsw7aabMcZR4lAAf-nPC8ZjyNOBFLzpCwUGjZXQfBtooPFWJYpDQxK9O23C7AaFjzwIsuzf9KOEaZ42J6M5H_6zy1FES0hulDdZhbdXJM-PGtWzWerrcQGmClLhfNSjWu646diovdL8hXVSiZlvw=w641-h854-s-no-gm?authuser=0);
+    background-size: 100vi 100vh; /* Cover the entire area */
+    background-position: top; /* Center the GIF */
+    background-repeat: no-repeat; /* Prevent the GIF from repeating */
+
 }
 
 #services {

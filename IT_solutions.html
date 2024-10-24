@@ -11,7 +11,6 @@
     <button onclick="goToMain()">Back</button>
     <header>
         <nav>
-            </div>
             <div class="email-btn">
                 <a href="mailto:rensengamboa@gmail.com">
                     <i class="fas fa-envelope"></i>
@@ -20,9 +19,6 @@
             </div>
         </nav>
     </header>
-
-    
-
 
     <div class="gallery">
         <div class="gallery-item" onclick="openModal('modal1')">
@@ -33,19 +29,11 @@
             </div>
         </div>
 
-        <div class="gallery-item" onclick="openModal('modal2')">
+        <div class="gallery-item" onclick="openModal('modal2', 'Programs', 'Essential software for daily tasks and needs.')">
             <img src="Images/Programs.jpg" alt="Image 2">
             <div class="description">
                 <h2>Programs</h2>
-                <p>This is a brief description of the second image. It explains what the image is about.</p>
-            </div>
-        </div>
-
-        <div class="gallery-item" onclick="openModal('modal3')">
-            <img src="image3.jpg" alt="Image 3">
-            <div class="description">
-                <h2>Image Title 3</h2>
-                <p>This is a brief description of the third image. It explains what the image is about.</p>
+                <p>Essential software for daily tasks and needs.</p>
             </div>
         </div>
     </div>
@@ -55,45 +43,97 @@
         <span class="close" onclick="closeModal('modal1')">&times;</span>
         <div class="modal-content">
             <div class="modal-gallery">
-                <img src="Images/Format.jpg" alt="Image 1.1">
-                <img src="Images/Activation2.jpg" alt="Image 1.2">
-                <img src="Images/activation.jpg" alt="Image 1.3">
-                <img src="Images/activation.jpg" alt="Image 1.3">
-                <img src="Images/activation.jpg" alt="Image 1.3">
-                <img src="Images/activation.jpg" alt="Image 1.3">
+                <img src="Images/Format.jpg" alt="Image 1.1" data-description="Clean install of the latest OS for your PC.">
+                <img src="Images/Activation2.jpg" alt="Image 1.2" data-description="Activates your device with a valid license.">
+                <img src="Images/activation.jpg" alt="Image 1.3" data-description="Complete activation process for your OS.">
             </div>
         </div>
     </div>
-
-    <div id="fullScreenModal" class="fullscreen-modal">
-        <span class="close" onclick="closeFullScreen()">&times;</span>
-        <img id="fullScreenImage" class="fullscreen-modal-content">
-     </div>
 
     <!-- Modal for Image 2 -->
     <div id="modal2" class="modal">
         <span class="close" onclick="closeModal('modal2')">&times;</span>
         <div class="modal-content">
             <div class="modal-gallery">
-                <img src="image2-1.jpg" alt="Image 2.1">
-                <img src="image2-2.jpg" alt="Image 2.2">
-                <img src="image2-3.jpg" alt="Image 2.3">
+                <img src="https://images.g2a.com/300x400/1x1x1/autodesk-autocad-2025-pc-1-device-1-year-autodesk-key-global-i10000506106001/94e1b03594104d19ba365d7f" alt="Image 2.1" data-description="Autodesk AutoCAD 2025 software.">
+                <img src="https://raketcontent.com/1/Sketch_Up_Pro_2024_cce90351e1.png" alt="Image 2.2" data-description="SketchUp Pro 2024 software.">
+                <img src="Images/Adobe_Mastercollection.jpeg" alt="Image 2.3" data-description="Adobe Master Collection for creative tasks.">
             </div>
         </div>
     </div>
 
-    <!-- Modal for Image 3 -->
-    <div id="modal3" class="modal">
-        <span class="close" onclick="closeModal('modal3')">&times;</span>
-        <div class="modal-content">
-            <div class="modal-gallery">
-                <img src="image3-1.jpg" alt="Image 3.1">
-                <img src="image3-2.jpg" alt="Image 3.2">
-                <img src="image3-3.jpg" alt="Image 3.3">
+    <div id="fullScreenModal" class="fullscreen-modal">
+        <span class="close" onclick="closeFullScreen()">&times;</span>
+        <div class="fullscreen-modal-content">
+            <img id="fullScreenImage" class="fullscreen-image" alt="Full screen image">
+            <div id="fullScreenDescription" class="fullscreen-description">
+                <h2></h2> <!-- Description will be populated dynamically -->
             </div>
         </div>
     </div>
 
     <script src="Scripts1.js"></script>
+    <script>
+        // Function to open the image modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "block";
+            
+            // Add event listener for the Escape key
+            document.addEventListener('keydown', handleEscapeKey);
+        }
+
+        // Function to close the image modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "none";
+
+            // Remove the event listener when closing the modal
+            document.removeEventListener('keydown', handleEscapeKey);
+        }
+
+        // Function to open full-screen modal with image and description
+        function openFullScreen(imageSrc, descriptionText) {
+            const fullScreenModal = document.getElementById('fullScreenModal');
+            const fullScreenImage = document.getElementById('fullScreenImage');
+            const fullScreenDescription = document.getElementById('fullScreenDescription').querySelector('h2');
+            
+            fullScreenImage.src = imageSrc;
+            fullScreenDescription.innerText = descriptionText;
+
+            fullScreenModal.style.display = 'block';
+
+            // Add event listener for the Escape key
+            document.addEventListener('keydown', handleEscapeKey);
+        }
+
+        // Function to close the full-screen modal
+        function closeFullScreen() {
+            const fullScreenModal = document.getElementById('fullScreenModal');
+            fullScreenModal.style.display = 'none';
+
+            // Remove the event listener when closing the modal
+            document.removeEventListener('keydown', handleEscapeKey);
+        }
+
+        // Function to handle Escape key press
+        function handleEscapeKey(event) {
+            if (event.key === "Escape") {
+                // Close any open modal
+                closeModal('modal1');
+                closeModal('modal2');
+                closeFullScreen();
+            }
+        }
+
+        // Adding event listeners to all images within the modal galleries
+        document.querySelectorAll('.modal-gallery img').forEach(img => {
+            img.addEventListener('click', function() {
+                const imageSrc = this.src;
+                const descriptionText = this.getAttribute('data-description') || 'No description available';
+                openFullScreen(imageSrc, descriptionText);
+            });
+        });
+    </script>
 </body>
 </html>

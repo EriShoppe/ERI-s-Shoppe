@@ -38,7 +38,7 @@ button:hover {
     padding: 10px 20px;
     border-radius: 12px;
     transition: background-color 0.3s ease;
-    z-index: 1000;
+    z-index: 1;
 }
 
 .hover-text {
@@ -90,6 +90,7 @@ button:hover {
     flex-wrap: wrap; 
     gap: 10px;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .gallery-item {
@@ -114,7 +115,7 @@ button:hover {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(135deg, rgba(255, 0, 0, 0.8), rgba(0, 255, 0, 0.8), rgba(0, 0, 255, 0.8)); /* RGB gradient */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)); /* RGB gradient */
     color: white;
     padding: 10px;
     opacity: 0; /* Initially hidden */
@@ -166,29 +167,47 @@ p {
 }
 
 .modal-content {
-    margin: 15% auto;
+    margin: 5% auto;
     padding: 20px;
     width: 80%;
-    max-height: 80vh; /* Limit height of modal */
-    overflow-y: auto; /* Allow vertical scrolling */
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-height: 90vh; /* Limit height of modal */
+    overflow-y: auto; /* Allow vertical scrolling */
+    display: flex;
+    flex-direction: row; /* Stack content vertically */
 }
-
 
 .modal-gallery {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap; /* Allow images to wrap */
-    gap: 10px; /* Optional: Add some spacing between images */
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px; /* Space between gallery and description */
+}
+
+.modal-description {
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.modal-description h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #007BFF;
+}
+
+.modal-description p {
+    font-size: 16px;
+    color: #555;
 }
 
 .modal-gallery img {
-    width: calc(30% - 10px); /* Adjust width to fit three images per row with spacing */
-    height: auto; /* Maintain aspect ratio */
+    width: calc(30% - 10px);
+    height: 300px;
     transition: transform 0.3s ease-in-out;
-    max-width: 100%; /* Ensure images don’t overflow their container */
 }
+
 
 
 .modal-gallery img:hover {
@@ -252,12 +271,28 @@ p {
 }
 
 .fullscreen-modal-content {
+    text-align: center;
+    max-width: 90%;       /* Maximum width of the content (image + description) */
+    height: 80%;
     margin: auto;
-    display: inline-block; /* Ensure it's inline to keep original ratio */
-    max-width: 100%;       /* Max width of the screen */
-    max-height: 100%;      /* Max height of the screen */
-    object-fit: contain;   /* Maintain aspect ratio without stretching */
-    animation: fadeIn 0.5s ease;
+    display: flex;
+    flex-direction: column; /* Stack the image and description vertically */
+}
+
+.fullscreen-image {
+    max-width: 100%;   /* Image takes the full width */
+    max-height: 80vh;  /* Adjust to avoid overflow */
+    object-fit: contain;
+}
+
+.fullscreen-description {
+    margin-top: 20px;  /* Space between the image and the description */
+    color: #fff;       /* White text for visibility on dark background */
+    font-size: 18px;   /* Adjust font size */
+    text-align: center;  /* Align text to the left */
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-radius: 8px;
 }
 
 /* Fullscreen modal close button */

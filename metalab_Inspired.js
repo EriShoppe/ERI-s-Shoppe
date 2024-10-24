@@ -91,8 +91,8 @@ document.querySelectorAll('.catalog-item').forEach(item => {
             setTimeout(() => {
                 document.body.removeChild(overlay); // Remove overlay
                 window.location.href = link; // Navigate to the linked HTML file
-            }, 300); // Wait for fade out to finish before navigating
-        }, 1000); // Show the overlay for 2 seconds
+            }, 500); // Wait for fade out to finish before navigating
+        }, 2000); // Show the overlay for 2 seconds
     });
 });
 

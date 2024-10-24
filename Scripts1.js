@@ -1,20 +1,24 @@
-
 // Back Button //
 function goToMain() {
-    window.location.href = 'index.html';  // Redirects to your main HTML page
+    window.location.href = 'index.html';
 }
 
-   // Intercept back button press
-   window.addEventListener("popstate", function(event) {
-    window.location.href = 'main.html';  // Force redirect to main page
+// Intercept back button press
+window.addEventListener("popstate", function(event) {
+    window.location.href = 'main.html';
 });
 
-// Push a new state to avoid going back to the previous page
-window.history.pushState(null, null, window.location.href);
+// Function to open the modal and dynamically change the description
+function openModal(modalId, title, description) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'block';
 
-// Function to open the modal
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'block';
+    // Update the description dynamically
+    const modalDescription = modal.querySelector('.modal-description');
+    if (modalDescription) {
+        modalDescription.querySelector('h2').textContent = title;
+        modalDescription.querySelector('p').textContent = description;
+    }
 }
 
 // Function to close the modal
@@ -22,22 +26,37 @@ function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
 }
 
-// Function to open the full-screen modal with the clicked image
-function openFullScreen(imageSrc) {
+// Function to open the full-screen modal with the clicked image and description
+function openFullScreen(imageSrc, descriptionText) {
     const fullScreenModal = document.getElementById('fullScreenModal');
     const fullScreenImage = document.getElementById('fullScreenImage');
-    fullScreenImage.src = imageSrc; // Set clicked image's source to modal image
-    fullScreenModal.style.display = 'block'; // Show the full-screen modal
+    const fullScreenDescription = document.getElementById('fullScreenDescription');
+
+    // Set the image source and description text dynamically
+    fullScreenImage.src = imageSrc;
+    fullScreenDescription.innerText = descriptionText;  // Set the description
+
+    // Show the full-screen modal
+    fullScreenModal.style.display = 'block';
 
     // Add event listener to close the modal when Escape is pressed
     document.addEventListener('keydown', handleEscape);
 }
 
+// Add click event listener to modal images
+document.querySelectorAll('.modal-gallery img').forEach(img => {
+    img.addEventListener('click', function() {
+        // Get the image source and description from the clicked image
+        const imageSrc = this.src;
+        const descriptionText = this.getAttribute('data-description') || 'No description available'; // Fallback if description is missing
+        openFullScreen(imageSrc, descriptionText);
+    });
+});
+
+
 // Function to close the full-screen modal
 function closeFullScreen() {
     document.getElementById('fullScreenModal').style.display = 'none';
-
-    // Remove the event listener when the modal is closed
     document.removeEventListener('keydown', handleEscape);
 }
 
@@ -48,9 +67,9 @@ function handleEscape(event) {
     }
 }
 
-// Add click event listener to modal images
+// Add click event listener to modal images for full-screen functionality
 document.querySelectorAll('.modal-gallery img').forEach(img => {
-    img.addEventListener('click', function() {
+    img.addEventListener('click', function () {
         openFullScreen(this.src);
     });
 });
