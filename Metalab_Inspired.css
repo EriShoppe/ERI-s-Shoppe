@@ -158,29 +158,6 @@ html {
     overflow: hidden; /* Hide overflow to maintain structure */
 }
 
-.video-background {
-    position: absolute; /* Position the video container absolutely */
-    top: 0; /* Align to top */
-    left: 0; /* Align to left */
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    z-index: -1; /* Ensure video is behind content */
-}
-
-.video-background iframe {
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    border: none; /* Remove border */
-    object-fit: cover; /* Maintain aspect ratio */
-}
-
-.content {
-    position: relative; /* For stacking */
-    color: white; /* Text color for better visibility */
-    text-align: center; /* Center the text */
-    padding: 20px; /* Add padding */
-}
-
 #services {
     background-image: url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHEwbzU2YmJmYmhlMjZ5bDBldXF6MTJqeWxidGF4YTcyZW81eWh6eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0Qv8WySxVtKIqrAPbv/giphy.webp); /* Replace with your GIF URL */
     background-size: 100vi 120vh; /* Cover the entire area */
