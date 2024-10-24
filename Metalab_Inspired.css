@@ -16,29 +16,6 @@ body {
     opacity: 0; /* When this class is applied, fade out */
 }
 
-/* Video Background */
-.video-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-    overflow: hidden;
-}
-
-#bg-video {
-    position: absolute;
-    top: 120%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-}
-
 /* Header Styles */
 header {
     position: fixed;
@@ -53,7 +30,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    text-align: center;
+    justify-items: center;
+    padding: 10px;
+    font-size: 10px;
     background-color: transparent;
     transition: background-color 0.5s ease, box-shadow 0.3s ease;
 }
@@ -72,7 +52,8 @@ header {
 .menu ul li a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 12px;
+    text-align: center;
     transition: color 0.3s;
 }
 
@@ -80,18 +61,38 @@ header {
     color: #f0a500; /* Change color on hover */
 }
 
-.email-btn a {
-    padding: 10px 20px;
+/* Email Button Styles */
+.email-btn {
+    display: inline-block;
     background-color: #f0a500;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 12px;
     transition: background-color 0.3s ease;
 }
 
-.email-btn a:hover {
-    background-color: #e58900; /* Change color on hover */
+.email-btn a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between icon and text */
 }
+
+.email-btn:hover {
+    background-color: #e58900;
+}
+
+.email-btn a img {
+    width: 20px; /* Adjust size of email icon */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.email-btn a:hover img {
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
 
 /* Smooth scrolling transition */
 html {
@@ -138,8 +139,8 @@ section {
 }
 
 .catalog-item img {
-    width: 100%;
-    height: 200px;
+    width: 50%;
+    height: 100px;
     object-fit: cover;
     border-radius: 10px;
     transition: transform 0.3s ease; /* Smooth transition */
@@ -190,3 +191,20 @@ section {
 #contact {
     background-color: rgba(155, 89, 182, 0.6);
 }
+
+    .social-media {
+        display: flex;
+        gap: 10px; /* Adds space between icons */
+    }
+
+    .social-media a img {
+        width: 40px; /* Controls the icon width */
+        height: 40px; /* Controls the icon height */
+    }
+
+    /* Optional: You can also style the container */
+    .social-media {
+        margin-top: 20px; /* Adds space above the icons */
+        justify-content: center; /* Centers the icons */
+    }
+
