@@ -27,6 +27,63 @@ button:hover {
     background-color: #0056b3;
 }
 
+.email-btn {
+    display: inline-block;
+    position: fixed; /* Set position relative for absolute positioning of hover text */
+    top: 20px;
+    right: 20px;
+    background-image: url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXo0eHNweGJhMHAyNHIyNXo2NGZkdm8ydW1hcjZ1d3FvMW5xem9hdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K5PQN3TQ2aUD6QkQi8/giphy.webp);
+    background-color: #f0a500;
+    background-size: cover;
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.hover-text {
+    display: none; /* Initially hide the hover text */
+    position: absolute; /* Position it absolutely within the button */
+    top: 110%; /* Position it below the button */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for exact center */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white; /* Text color */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 12px; /* Adjust font size */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+}
+
+/* Show the hover text on hover */
+.email-btn:hover .hover-text {
+    display: block; /* Show the hover text when hovering */
+}
+
+
+.email-btn a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between icon and text */
+}
+
+.email-btn:hover {
+    background-color: #e58900;
+}
+
+.email-btn a img {
+    width: 20px; /* Adjust size of email icon */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.email-btn a:hover img {
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
 /* Basic gallery layout */
 .gallery {
     display: flex;

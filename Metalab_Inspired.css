@@ -205,7 +205,7 @@ html {
 .catalog {
     display: flex;
     width: 50%;
-    height: 50%;
+    height: 20%;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
