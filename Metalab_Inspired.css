@@ -117,8 +117,25 @@ section {
 }
 
 #services {
-    background-color: rgba(46, 204, 113, 0.6);
+    background-color: rgba(46, 204, 113, 0.6); /* Your existing background */
+    height: 800px; /* Set a fixed height for the section */
+    padding: 20px;
+    overflow-y: auto; /* Enables vertical scrolling if content overflows */
 }
+
+.services-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between service items */
+}
+
+.service-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 
 /* General styles remain the same */
 
