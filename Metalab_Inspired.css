@@ -101,16 +101,11 @@ html {
 
 /* Sections Styles */
 
-section {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.6); /* Slight dark background over video */
-    color: white;
-    padding: 40px;
+#home {
+    background-image: url(https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWdjbWpjMHd1MGtkM2Roc3hudXhlMG94N2txYm53bjN5aGpxZTlqbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PidSzdflbzd1sksap9/giphy.webp); /* Replace with your GIF URL */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the GIF */
+    background-repeat: no-repeat; /* Prevent the GIF from repeating */
 }
 
 #about {
@@ -153,6 +148,16 @@ section {
     flex: 0 0 100%; /* Each section takes full width */
     height: 100vh; /* Each section takes full height */
     scroll-snap-align: start; /* Snap to the start of each section */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Slight dark background over video */
+    color: white;
+    padding: 40px;
+    
 }
 
 /* Optional: Hide scrollbar for a cleaner look */
