@@ -36,6 +36,10 @@ section {
     
 }
 
+section.active {
+    opacity: 1; /* Show the active section */
+}
+
 /* Header Styles */
 header {
     position: fixed;
@@ -170,7 +174,7 @@ html {
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
     height: 800px; /* Set a fixed height for the section */
     color: white; /* Text color for better visibility */
-    padding: 20px;
+    padding: 80px;
     overflow-y: auto; /* Enables vertical scrolling if content overflows */
 }
 
@@ -297,9 +301,10 @@ html {
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
     height: 800px; /* Set a fixed height for the section */
     display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center horizontally */
+    justify-content: flex-start; /* Center horizontally */
     align-items: center; /* Center vertically */
     color: white; /* Text color for better visibility */
+    padding: 80px;
 }
 
     .social-media {
