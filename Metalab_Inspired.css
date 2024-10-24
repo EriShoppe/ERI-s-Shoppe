@@ -9,11 +9,31 @@ body {
     overflow-x: hidden;
     overflow-y: hidden;
     opacity: 1;
-    transition: opacity 0.5s ease; /* Smooth transition for opacity */
-}
+    transition: opacity 0.5s ease;
+    }
+
+    h1, p {
+        margin: 2px 0; /* Adjust vertical spacing */
+    }
 
 .fade-out {
     opacity: 0; /* When this class is applied, fade out */
+}
+
+section {
+    flex: 0 0 100%; /* Each section takes full width */
+    height: 100vh; /* Each section takes full height */
+    scroll-snap-align: start; /* Snap to the start of each section */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Slight dark background over video */
+    color: white;
+    padding: 40px;
+    
 }
 
 /* Header Styles */
@@ -64,11 +84,34 @@ header {
 /* Email Button Styles */
 .email-btn {
     display: inline-block;
+    position: relative; /* Set position relative for absolute positioning of hover text */
+    background-image: url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXo0eHNweGJhMHAyNHIyNXo2NGZkdm8ydW1hcjZ1d3FvMW5xem9hdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K5PQN3TQ2aUD6QkQi8/giphy.webp);
     background-color: #f0a500;
+    background-size: cover;
     padding: 10px 20px;
     border-radius: 12px;
     transition: background-color 0.3s ease;
 }
+
+.hover-text {
+    display: none; /* Initially hide the hover text */
+    position: absolute; /* Position it absolutely within the button */
+    top: 110%; /* Position it below the button */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for exact center */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white; /* Text color */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 12px; /* Adjust font size */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+}
+
+/* Show the hover text on hover */
+.email-btn:hover .hover-text {
+    display: block; /* Show the hover text when hovering */
+}
+
 
 .email-btn a {
     color: white;
@@ -110,13 +153,41 @@ html {
 }
 
 #about {
-    background-color: rgba(231, 76, 60, 0.6);
+    position: relative; /* For absolute positioning of the video */
     height: 800px; /* Set a fixed height for the section */
+    overflow: hidden; /* Hide overflow to maintain structure */
+}
+
+.video-background {
+    position: absolute; /* Position the video container absolutely */
+    top: 0; /* Align to top */
+    left: 0; /* Align to left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    z-index: -1; /* Ensure video is behind content */
+}
+
+.video-background iframe {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    border: none; /* Remove border */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+.content {
+    position: relative; /* For stacking */
+    color: white; /* Text color for better visibility */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add padding */
 }
 
 #services {
-    background-color: rgba(46, 204, 113, 0.6); /* Your existing background */
+    background-image: url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHEwbzU2YmJmYmhlMjZ5bDBldXF6MTJqeWxidGF4YTcyZW81eWh6eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0Qv8WySxVtKIqrAPbv/giphy.webp); /* Replace with your GIF URL */
+    background-size: 100vi 120vh; /* Cover the entire area */
+    background-position: top; /* Center the GIF */
+    background-repeat: no-repeat; /* Prevent the GIF from repeating */
     height: 800px; /* Set a fixed height for the section */
+    color: white; /* Text color for better visibility */
     padding: 20px;
     overflow-y: auto; /* Enables vertical scrolling if content overflows */
 }
@@ -127,10 +198,10 @@ html {
     gap: 20px; /* Space between service items */
 }
 
-.service-item {
+.services-item {
     background-color: white;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 900px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -144,21 +215,8 @@ html {
     overflow-x: auto; /* Enable horizontal scrolling */
     scroll-snap-type: x mandatory; /* Enable snapping */
     height: 100vh; /* Full viewport height */
-}
-
-section {
-    flex: 0 0 100%; /* Each section takes full width */
-    height: 100vh; /* Each section takes full height */
-    scroll-snap-align: start; /* Snap to the start of each section */
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.6); /* Slight dark background over video */
-    color: white;
-    padding: 40px;
+    position: relative;
+    justify-content: flex-start;
     
 }
 
@@ -169,6 +227,8 @@ section {
 
 .catalog {
     display: flex;
+    width: 50%;
+    height: 50%;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
@@ -177,14 +237,25 @@ section {
 
 .catalog-item {
     position: relative;
-    display: inline-block;
+    display: block; /* Changed to block for better alignment */
     text-decoration: none;
-    color: black;
+    color: rgb(255, 129, 167);
     overflow: hidden; /* Prevent overflow */
+    width: 250px; /* Set a fixed width for consistency */
+    background-color: rgba(255, 255, 255, 0.1); /* Optional: Add background for visibility */
+    border-radius: 10px; /* Round corners for a softer look */
+    padding: 15px; /* Add padding inside the item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.catalog-item:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
 }
 
 .catalog-item img {
-    width: 50%;
+    width: 40%;
     height: 100px;
     object-fit: cover;
     border-radius: 10px;
@@ -194,17 +265,21 @@ section {
 .catalog-item h3 {
     margin-top: 15px;
     font-size: 22px;
+    color: rgb(255, 255, 255);
 }
 
 .catalog-item p {
     margin-top: 10px;
     font-size: 16px;
-    color: #555;
+    color: #ffffff;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .catalog-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 40px;
 }
 
 .catalog-item:hover img {

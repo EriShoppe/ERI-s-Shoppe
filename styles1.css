@@ -8,6 +8,9 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     padding: 20px;
+    background-image: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnhzcGc0eW94eHI2dWZsYjVyajg3MW00YXFzMzNrd20wYXB3Nm9tZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1X6XcN2oxS08VrquP/giphy.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 button {
