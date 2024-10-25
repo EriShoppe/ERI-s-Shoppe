@@ -222,21 +222,3 @@ function goToServices() {
 function goToComingSoon() {
     window.location.href = 'https://erishoppe.github.io/ERI-s-Shoppe/IT_solutions.html';
 }
-
-// fade in animations
-
-document.addEventListener("scroll", () => {
-  const sections = document.querySelectorAll(".section");
-  
-  sections.forEach((section) => {
-    const sectionTop = section.getBoundingClientRect().top;
-    const sectionBottom = section.getBoundingClientRect().bottom;
-    const viewportHeight = window.innerHeight;
-
-    if (sectionTop <= viewportHeight / 2 && sectionBottom > viewportHeight / 2) {
-      section.classList.add("active");
-    } else {
-      section.classList.remove("active");
-    }
-  });
-});

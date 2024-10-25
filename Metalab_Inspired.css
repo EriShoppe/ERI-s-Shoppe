@@ -27,33 +27,11 @@ body {
         margin: 2px 0; /* Adjust vertical spacing */
     }
 
-/* Set the basic style of the background */
-.fade-background {
-  width: 100%;
-  height: 100vh;
-  background-color: #3498db;
-  animation: fadeBackground 3s infinite;
-}
-
-/* Define the fade animation */
-@keyframes fadeBackground {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-
 .fade-out {
     opacity: 0; /* When this class is applied, fade out */
 }
 
-.section {
+section {
     flex: 0 0 100%; /* Each section takes full width */
     height: 100vh; /* Each section takes full height */
     scroll-snap-align: start; /* Snap to the start of each section */
@@ -65,11 +43,10 @@ body {
     background-color: rgba(0, 0, 0, 0.6); /* Slight dark background over video */
     color: white;
     padding: 40px;
-    opacity: 0;
     
 }
 
-.section.active {
+section.active {
     opacity: 1; /* Show the active section */
     position: relative; /* Position relative for stacking context */
 }
@@ -195,7 +172,7 @@ html {
 #about {
     background-image: url(https://lh3.googleusercontent.com/pw/AP1GczOrL6qsw7aabMcZR4lAAf-nPC8ZjyNOBFLzpCwUGjZXQfBtooPFWJYpDQxK9O23C7AaFjzwIsuzf9KOEaZ42J6M5H_6zy1FES0hulDdZhbdXJM-PGtWzWerrcQGmClLhfNSjWu646diovdL8hXVSiZlvw=w641-h854-s-no-gm?authuser=0);
     background-size: cover; /* Cover the entire area */
-    background-position: 0 0; /* Center the GIF */
+    background-position: cover; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
     height: 100vh; /* Set a fixed height for the section */
     width: 100vi;
@@ -204,7 +181,7 @@ html {
 }
 
 #services {
-    background-image: url(https://i.pinimg.com/originals/62/39/4d/62394d753859943e6a1a36443ef78795.gif); /* Replace with your GIF URL */
+    background-image: url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHEwbzU2YmJmYmhlMjZ5bDBldXF6MTJqeWxidGF4YTcyZW81eWh6eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0Qv8WySxVtKIqrAPbv/giphy.webp); /* Replace with your GIF URL */
     background-size: cover; /* Cover the entire area */
     background-position: top; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
