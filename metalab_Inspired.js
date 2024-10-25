@@ -203,22 +203,4 @@ window.addEventListener('load', () => {
     }
 });
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// clickables
-
-function goToIT() {
-    window.location.href = 'https://erishoppe.github.io/ERI-s-Shoppe/IT_solutions.html';
-}
-
-function goToWater() {
-    window.location.href = 'https://erishoppe.github.io/ERI-s-Shoppe/Water_solutions.html';
-}
-
-function goToServices() {
-    window.location.href = 'https://erishoppe.github.io/ERI-s-Shoppe/Services.html';
-}
-
-function goToComingSoon() {
-    window.location.href = 'https://erishoppe.github.io/ERI-s-Shoppe/IT_solutions.html';
-}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
