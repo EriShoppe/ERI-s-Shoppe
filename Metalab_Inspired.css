@@ -172,7 +172,7 @@ html {
 #about {
     background-image: url(https://lh3.googleusercontent.com/pw/AP1GczOrL6qsw7aabMcZR4lAAf-nPC8ZjyNOBFLzpCwUGjZXQfBtooPFWJYpDQxK9O23C7AaFjzwIsuzf9KOEaZ42J6M5H_6zy1FES0hulDdZhbdXJM-PGtWzWerrcQGmClLhfNSjWu646diovdL8hXVSiZlvw=w641-h854-s-no-gm?authuser=0);
     background-size: cover; /* Cover the entire area */
-    background-position: 0 -400px; /* Center the GIF */
+    background-position: 0 0; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
     height: 100vh; /* Set a fixed height for the section */
     width: 100vi;
