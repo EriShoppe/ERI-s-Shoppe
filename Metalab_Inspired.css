@@ -161,18 +161,21 @@ html {
     background-size: 100% 100%; /* Cover the entire area */
     background-position: center; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
+    background-attachment: fixed;
     height: 100vh; /* Set a fixed height for the section */
     width: 100vi;
     padding: 80px;
     overflow: auto;
 }
 
+
 #about {
     background-image: url(https://lh3.googleusercontent.com/pw/AP1GczOrL6qsw7aabMcZR4lAAf-nPC8ZjyNOBFLzpCwUGjZXQfBtooPFWJYpDQxK9O23C7AaFjzwIsuzf9KOEaZ42J6M5H_6zy1FES0hulDdZhbdXJM-PGtWzWerrcQGmClLhfNSjWu646diovdL8hXVSiZlvw=w641-h854-s-no-gm?authuser=0);
     background-size: 100% 100%; /* Cover the entire area */
     background-position: cover; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
-    height: 100%; /* Set a fixed height for the section */
+    background-attachment: fixed;
+    height: 250vh; /* Set a fixed height for the section */
     width: 100vi;
     padding: 80px;
     overflow: auto;
@@ -275,6 +278,7 @@ html {
     background-size: 100% 150%; /* Cover the entire area */
     background-position: top; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
+    background-attachment: fixed;
     height: 100vh; /* Set a fixed height for the section */
     width: 100vi;
     padding: 80px;
@@ -283,7 +287,8 @@ html {
 
     .social-media {
         display: flex;
-        gap: 10px; /* Adds space between icons */
+        flex-direction: row;
+        gap: 5px; /* Adds space between icons */
     }
 
     .social-media a img {
@@ -318,19 +323,3 @@ html {
     display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
 }
 
-/* Overlay styling */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
-    z-index: 9999; /* Ensure it covers other content */
-    display: none; /* Initially hidden */
-}
-
-/* For visible overlay */
-.overlay.visible {
-    display: block; /* Show overlay */
-}
