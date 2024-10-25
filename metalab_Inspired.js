@@ -12,9 +12,18 @@ window.onscroll = function() {
 document.querySelectorAll('.menu ul li a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+
+        // Hide all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.remove('active'); // Remove active class
         });
+
+        // Get the target section
+        const targetSection = document.querySelector(this.getAttribute('href'));
+        targetSection.classList.add('active'); // Add active class to show
+
+        // Smooth scroll to the target section
+        targetSection.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
@@ -193,3 +202,23 @@ window.addEventListener('load', () => {
         }
     }
 });
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// clickables
+
+function goToIT() {
+    window.location.href = 'https://erishoppe.github.io/ERI-s-Shoppe/IT_solutions.html';
+}
+
+function goToWater() {
+    window.location.href = 'https://erishoppe.github.io/ERI-s-Shoppe/Water_solutions.html';
+}
+
+function goToServices() {
+    window.location.href = 'https://erishoppe.github.io/ERI-s-Shoppe/Services.html';
+}
+
+function goToComingSoon() {
+    window.location.href = 'https://erishoppe.github.io/ERI-s-Shoppe/IT_solutions.html';
+}

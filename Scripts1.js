@@ -1,6 +1,6 @@
 // Back Button //
 function goToMain() {
-    window.location.href = 'index.html';
+    window.location.href = 'https://erishoppe.github.io/ERI-s-Shoppe/';
 }
 
 // Intercept back button press

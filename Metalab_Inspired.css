@@ -10,6 +10,7 @@ body {
     overflow-y: hidden;
     opacity: 1;
     transition: opacity 0.5s ease;
+    height: 800px;
     }
 
     h1, p {
@@ -24,7 +25,6 @@ section {
     flex: 0 0 100%; /* Each section takes full width */
     height: 100vh; /* Each section takes full height */
     scroll-snap-align: start; /* Snap to the start of each section */
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,6 +38,7 @@ section {
 
 section.active {
     opacity: 1; /* Show the active section */
+    position: relative; /* Position relative for stacking context */
 }
 
 /* Header Styles */
@@ -146,7 +147,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Sections Styles */
+/* Sections Styles - Front End */
 
 #home {
     background-image: url(https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWdjbWpjMHd1MGtkM2Roc3hudXhlMG94N2txYm53bjN5aGpxZTlqbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PidSzdflbzd1sksap9/giphy.webp); /* Replace with your GIF URL */
@@ -154,28 +155,27 @@ html {
     background-position: center; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
     height: 800px; /* Set a fixed height for the section */
+    padding: 80px;
 }
 
 #about {
-    position: relative; /* For absolute positioning of the video */
-    height: 800px; /* Set a fixed height for the section */
-    overflow: hidden; /* Hide overflow to maintain structure */
     background-image: url(https://lh3.googleusercontent.com/pw/AP1GczOrL6qsw7aabMcZR4lAAf-nPC8ZjyNOBFLzpCwUGjZXQfBtooPFWJYpDQxK9O23C7AaFjzwIsuzf9KOEaZ42J6M5H_6zy1FES0hulDdZhbdXJM-PGtWzWerrcQGmClLhfNSjWu646diovdL8hXVSiZlvw=w641-h854-s-no-gm?authuser=0);
-    background-size: 100vi 100vh; /* Cover the entire area */
-    background-position: top; /* Center the GIF */
+    background-size: cover; /* Cover the entire area */
+    background-position: 0 -400px; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
+    height: 800px; /* Set a fixed height for the section */
+    padding: 80px;
 
 }
 
 #services {
     background-image: url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHEwbzU2YmJmYmhlMjZ5bDBldXF6MTJqeWxidGF4YTcyZW81eWh6eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0Qv8WySxVtKIqrAPbv/giphy.webp); /* Replace with your GIF URL */
-    background-size: 100vi 120vh; /* Cover the entire area */
+    background-size: cover; /* Cover the entire area */
     background-position: top; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
     height: 800px; /* Set a fixed height for the section */
-    color: white; /* Text color for better visibility */
     padding: 80px;
-    overflow-y: auto; /* Enables vertical scrolling if content overflows */
+    min-height: 800px;
 }
 
 .services-content {
@@ -191,34 +191,14 @@ html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-/* General styles remain the same */
-
-/* swiping */
-
-.horizontal-scroll-container {
-    display: flex; /* Use flexbox to arrange sections in a row */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Enable snapping */
-    height: 100vh; /* Full viewport height */
-    position: relative;
-    justify-content: flex-start;
-    
-}
-
-/* Optional: Hide scrollbar for a cleaner look */
-.horizontal-scroll-container::-webkit-scrollbar {
-    display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
-}
-
 .catalog {
     display: flex;
-    width: 50%;
-    height: 20%;
+    flex-direction: row;
+    width: 70%;
+    height: 50%;
     gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
+    padding: 30px;
+    flex-wrap: nowrap;
 }
 
 .catalog-item {
@@ -230,7 +210,6 @@ html {
     width: 250px; /* Set a fixed width for consistency */
     background-color: rgba(255, 255, 255, 0.1); /* Optional: Add background for visibility */
     border-radius: 10px; /* Round corners for a softer look */
-    padding: 15px; /* Add padding inside the item */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
 }
@@ -242,16 +221,19 @@ html {
 
 .catalog-item img {
     width: 40%;
-    height: 100px;
+    height: 80px;
     object-fit: cover;
     border-radius: 10px;
     transition: transform 0.3s ease; /* Smooth transition */
+    padding: 1%;
+    margin-top: 10px;
 }
 
 .catalog-item h3 {
     margin-top: 15px;
     font-size: 22px;
     color: rgb(255, 255, 255);
+    flex-wrap: wrap;
 }
 
 .catalog-item p {
@@ -277,33 +259,12 @@ html {
     color: black; /* Ensure the text color remains consistent */
 }
 
-/* Overlay styling */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
-    z-index: 9999; /* Ensure it covers other content */
-    display: none; /* Initially hidden */
-}
-
-/* For visible overlay */
-.overlay.visible {
-    display: block; /* Show overlay */
-}
-
 #contact {
     background-image: url(https://lh3.googleusercontent.com/pw/AP1GczOrffT4FFM5RpIrEjLbInDBzLTSMpJwE9JUj-hdbSHWCvMIYPPo6tdeXeAERWGv0lwc5a43N4-YchiFRkj7T8JRv77-uycEx7Bb6pElRsq4s1uU4S0egMKzGoQ4AYRTmqHH029Esz6Yuu7DtU2uo5DL1g=w870-h870-s-no-gm?authuser=0ttps://photos.app.goo.gl/SRJdTAx3nym6sMcaA); /* Replace with your GIF URL */
     background-size: cover; /* Cover the entire area */
     background-position: top; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
     height: 800px; /* Set a fixed height for the section */
-    display: flex; /* Use flexbox for centering */
-    justify-content: flex-start; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    color: white; /* Text color for better visibility */
     padding: 80px;
 }
 
@@ -323,3 +284,40 @@ html {
         justify-content: center; /* Centers the icons */
     }
 
+
+
+/* General styles remain the same */
+
+/* swiping */
+
+.horizontal-scroll-container {
+    display: flex; /* Use flexbox to arrange sections in a row */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Enable snapping */
+    height: 100vh; /* Full viewport height */
+    position: relative;
+    justify-content: flex-start;
+    
+}
+
+/* Optional: Hide scrollbar for a cleaner look */
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+}
+
+/* Overlay styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    z-index: 9999; /* Ensure it covers other content */
+    display: none; /* Initially hidden */
+}
+
+/* For visible overlay */
+.overlay.visible {
+    display: block; /* Show overlay */
+}
