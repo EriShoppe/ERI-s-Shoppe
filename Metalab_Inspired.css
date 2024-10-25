@@ -10,10 +10,11 @@ body {
     overflow-y: hidden;
     opacity: 1;
     transition: opacity 0.5s ease;
-    width: 1024px; /* Force a fixed width */
-    margin: 0 auto; /* Center the layout on the screen */
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
     }
-    
+
     @media (max-width: 768px) {
         /* Mobile styles */
         .container {
@@ -21,6 +22,7 @@ body {
             padding: 10px;
         }
     }
+
     h1, p {
         margin: 2px 0; /* Adjust vertical spacing */
     }
@@ -162,16 +164,18 @@ html {
     background-size: cover; /* Cover the entire area */
     background-position: center; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
-    height: 800px; /* Set a fixed height for the section */
+    height: 100vh; /* Set a fixed height for the section */
+    width: 100vi;
     padding: 80px;
 }
 
 #about {
     background-image: url(https://lh3.googleusercontent.com/pw/AP1GczOrL6qsw7aabMcZR4lAAf-nPC8ZjyNOBFLzpCwUGjZXQfBtooPFWJYpDQxK9O23C7AaFjzwIsuzf9KOEaZ42J6M5H_6zy1FES0hulDdZhbdXJM-PGtWzWerrcQGmClLhfNSjWu646diovdL8hXVSiZlvw=w641-h854-s-no-gm?authuser=0);
     background-size: cover; /* Cover the entire area */
-    background-position: top; /* Center the GIF */
+    background-position: 0 -400px; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
-    height: 800px; /* Set a fixed height for the section */
+    height: 100vh; /* Set a fixed height for the section */
+    width: 100vi;
     padding: 80px;
 
 }
@@ -181,28 +185,29 @@ html {
     background-size: cover; /* Cover the entire area */
     background-position: top; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
-    height: 800px; /* Set a fixed height for the section */
+    height: 100vh; /* Set a fixed height for the section */
+    width: 100vi;
     padding: 80px;
 }
 
 .services-content {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Space between service items */
+    gap: 2px; /* Space between service items */
 }
 
 .services-item {
     background-color: white;
-    padding: 15px;
+    padding: 2px;
     border-radius: 900px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .catalog {
     display: flex;
-    width: 70%;
-    height: 50%;
-    gap: 20px;
+    width: 50%;
+    height: 20%;
+    gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -270,7 +275,8 @@ html {
     background-size: cover; /* Cover the entire area */
     background-position: top; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
-    height: 800px; /* Set a fixed height for the section */
+    height: 100vh; /* Set a fixed height for the section */
+    width: 100vi;
     padding: 80px;
 }
 
