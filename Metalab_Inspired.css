@@ -10,9 +10,17 @@ body {
     overflow-y: hidden;
     opacity: 1;
     transition: opacity 0.5s ease;
-    height: 800px;
+    width: 1024px; /* Force a fixed width */
+    margin: 0 auto; /* Center the layout on the screen */
     }
-
+    
+    @media (max-width: 768px) {
+        /* Mobile styles */
+        .container {
+            width: 100%;
+            padding: 10px;
+        }
+    }
     h1, p {
         margin: 2px 0; /* Adjust vertical spacing */
     }
