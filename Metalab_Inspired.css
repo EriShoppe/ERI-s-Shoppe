@@ -27,6 +27,28 @@ body {
         margin: 2px 0; /* Adjust vertical spacing */
     }
 
+/* Set the basic style of the background */
+.fade-background {
+  width: 100%;
+  height: 100vh;
+  background-color: #3498db;
+  animation: fadeBackground 3s infinite;
+}
+
+/* Define the fade animation */
+@keyframes fadeBackground {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
 .fade-out {
     opacity: 0; /* When this class is applied, fade out */
 }
