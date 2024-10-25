@@ -204,3 +204,9 @@ window.addEventListener('load', () => {
 });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+document.body.style.overflow = 'hidden'; // Hide scrollbar
+document.body.addEventListener('wheel', (e) => {
+    window.scrollBy(0, e.deltaY); // Allow scrolling
+});
+
