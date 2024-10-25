@@ -53,7 +53,7 @@ body {
     opacity: 0; /* When this class is applied, fade out */
 }
 
-section {
+.section {
     flex: 0 0 100%; /* Each section takes full width */
     height: 100vh; /* Each section takes full height */
     scroll-snap-align: start; /* Snap to the start of each section */
@@ -65,10 +65,11 @@ section {
     background-color: rgba(0, 0, 0, 0.6); /* Slight dark background over video */
     color: white;
     padding: 40px;
+    opacity: 0;
     
 }
 
-section.active {
+.section.active {
     opacity: 1; /* Show the active section */
     position: relative; /* Position relative for stacking context */
 }
