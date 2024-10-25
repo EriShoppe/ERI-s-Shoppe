@@ -1,171 +1,215 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.slide-section');
-    let currentIndex = 0;
-    let touchStartY = 0;
+import gsap from 'https://cdn.skypack.dev/gsap@3.12.2';
+import { ScrollTrigger } from 'https://cdn.skypack.dev/gsap@3.12.2/ScrollTrigger';
 
-    // Function to scroll to a specific section
-    function scrollToSection(index) {
-        if (index >= 0 && index < sections.length) {
-            sections[index].scrollIntoView({ behavior: 'smooth' });
-            localStorage.setItem('currentSlide', index); // Store current slide index
-        }
-    }
+if (!CSS.supports('animation-timeline: view()') && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  gsap.registerPlugin(ScrollTrigger);
+  // Set up all the scroll animations with ScrollTrigger instead.
+  // Blanket styles
+  gsap.set('.fixed', {
+    position: 'fixed',
+    inset: 0 });
 
-    // Event listener for mouse scroll
-    window.addEventListener('wheel', (event) => {
-        if (event.deltaY > 0) {
-            // Scroll down
-            if (currentIndex < sections.length - 1) {
-                currentIndex++;
-                scrollToSection(currentIndex);
-            }
-        } else {
-            // Scroll up
-            if (currentIndex > 0) {
-                currentIndex--;
-                scrollToSection(currentIndex);
-            }
-        }
-    });
+  gsap.set('.static', {
+    position: 'absolute',
+    inset: 0,
+    zIndex: 6 });
 
-    // Function to reveal sections and service items on scroll
-    function revealOnScroll() {
-        const revealPoint = 150;
-        const windowHeight = window.innerHeight;
+  // First section
+  gsap.set('section:first-of-type .fixed', {
+    transformOrigin: '50% 0%' });
 
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            if (sectionTop < windowHeight - revealPoint) {
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
-            }
-        });
-    }
-
-    // Event listener for scroll to reveal sections
-    window.addEventListener('scroll', revealOnScroll);
-
-    // Initial check to reveal sections on page load
-    revealOnScroll();
-
-    // Smooth scroll behavior for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+  gsap.to('section:first-of-type .fixed', {
+    scale: '0.35 0.5',
+    yPercent: -10,
+    scrollTrigger: {
+      scrub: 0.5,
+      trigger: 'section:first-of-type',
+      start: 'top top',
+      end: 'bottom 50%' } });
 
 
-    // Swipe handling for mobile
-    document.addEventListener('touchstart', (e) => {
-        touchStartY = e.touches[0].clientY;
-    });
-
-    document.addEventListener('touchend', (e) => {
-        const touchEndY = e.changedTouches[0].clientY;
-        const touchDifference = touchStartY - touchEndY;
-
-        if (Math.abs(touchDifference) > 50) {
-            if (touchDifference > 0) {
-                // Swipe up
-                scrollToNextSection();
-            } else {
-                // Swipe down
-                scrollToPreviousSection();
-            }
-        }
-    });
-
-    function scrollToNextSection() {
-        if (currentIndex < sections.length - 1) {
-            currentIndex++;
-            scrollToSection(currentIndex);
-        }
-    }
-
-    function scrollToPreviousSection() {
-        if (currentIndex > 0) {
-            currentIndex--;
-            scrollToSection(currentIndex);
-        }
-    }
-
-    // Disable scroll restoration to prevent scroll jumping
-    if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-    }
-
-    // Load current slide from local storage on page load
-    const currentSlide = localStorage.getItem('currentSlide');
-    if (currentSlide) {
-        currentIndex = parseInt(currentSlide, 10);
-        scrollToSection(currentIndex); // Navigate to the stored slide index
-    }
-
-    // Push a new state to avoid going back to the previous page
-    window.history.pushState(null, null, window.location.href);
-
-});
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Ensure this script runs after the DOM has loaded
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetSection = document.querySelector(this.getAttribute('href'));
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-});
+  gsap.to('section:first-of-type .fixed', {
+    opacity: 0,
+    scrollTrigger: {
+      scrub: 0.5,
+      trigger: 'section:first-of-type',
+      start: 'top top',
+      end: 'bottom 75%' } });
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
+  // The second section with image scaling down, etc.
+  gsap.set('section:nth-of-type(2) article:first-of-type .fixed', {
+    clipPath: 'ellipse(220% 200% at 50% 300%)',
+    zIndex: 3 });
 
-document.getElementById('servicesBtn').addEventListener('click', function() {
-    // Smooth scroll to the next section (contact section)
-    document.querySelector('.services-section').scrollIntoView({
-        behavior: 'smooth'
-    });
-});
+  gsap.to('section:nth-of-type(2) article:first-of-type .fixed', {
+    clipPath: 'ellipse(220% 200% at 50% 175%)',
+    scrollTrigger: {
+      scrub: 0.5,
+      trigger: 'section:nth-of-type(2) article:first-of-type',
+      start: 'top bottom',
+      end: 'top top' } });
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const servicesSection = document.querySelector('.services-section');
+  gsap.from('section:nth-of-type(2) article:first-of-type img', {
+    scale: 5,
+    scrollTrigger: {
+      scrub: 0.5,
+      trigger: 'section:nth-of-type(2) article:first-of-type',
+      start: 'top bottom',
+      end: 'top top' } });
 
-servicesSection.addEventListener('scroll', () => {
-    const { scrollTop, scrollHeight, clientHeight } = servicesSection;
 
-    // If scrolled to the top
-    if (scrollTop === 0) {
-        scrollToSection(currentIndex - 1); // Scroll to the previous section
-    }
-    
-    // If scrolled to the bottom
-    if (scrollTop + clientHeight >= scrollHeight) {
-        scrollToSection(currentIndex + 1); // Scroll to the next section
-    }
-});
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+  gsap.set('.loud-wrap', {
+    clipPath: 'inset(0 0 0 0)',
+    mask: 'linear-gradient(white 50%, transparent) 0 100% / 100% 200% no-repeat' });
 
-// Get the video
-var video = document.getElementById("myVideo");
+  gsap.set('.text-wrap', {
+    position: 'sticky',
+    bottom: '4rem',
+    transformOrigin: '50% 0' });
 
-// Get the button
-var btn = document.getElementById("myBtn");
+  gsap.from('section:nth-of-type(2) article:first-of-type h2', {
+    yPercent: 100,
+    scrollTrigger: {
+      scrub: 0.5,
+      trigger: 'section:nth-of-type(2) article:first-of-type',
+      start: 'top 50%',
+      end: 'top 0%' } });
 
-// Pause and play the video, and change the button text
-function myFunction() {
-  if (video.paused) {
-    video.play();
-    btn.innerHTML = "Pause";
-  } else {
-    video.pause();
-    btn.innerHTML = "Play";
-  }
+
+  gsap.to('section:nth-of-type(2) article:first-of-type .loud-wrap', {
+    maskPosition: '0 0',
+    scrollTrigger: {
+      scrub: 0.5,
+      trigger: 'section:nth-of-type(2) article:first-of-type',
+      start: 'top 50%',
+      end: 'top 0%' } });
+
+
+  // Blur the text on exit
+  gsap.to('section:nth-of-type(2) article:first-of-type .text-wrap', {
+    filter: 'blur(4rem)',
+    opacity: 0,
+    scrollTrigger: {
+      scrub: 0.5,
+      trigger: 'section:nth-of-type(2) article:first-of-type',
+      start: 'bottom 60%',
+      end: 'bottom 25%' } });
+
+
+
+  // Third section
+  gsap.set('section:nth-of-type(2) article:nth-of-type(2) .fixed', { zIndex: 3 });
+  gsap.from('section:nth-of-type(2) article:nth-of-type(2) .fixed', {
+    opacity: 0,
+    scrollTrigger: {
+      scrub: 0.5,
+      trigger: 'section:nth-of-type(2) article:nth-of-type(2)',
+      start: 'top 50%',
+      end: 'top -30%' } });
+
+
+  gsap.from('section:nth-of-type(2) article:nth-of-type(2) h2', {
+    yPercent: 100,
+    opacity: 0,
+    scrollTrigger: {
+      scrub: 0.5,
+      trigger: 'section:nth-of-type(2) article:nth-of-type(2)',
+      start: 'top 50%',
+      end: 'top 25%' } });
+
+
+  gsap.to('section:nth-of-type(2) article:nth-of-type(2) h2', {
+    filter: 'blur(4rem)',
+    color: 'transparent',
+    scrollTrigger: {
+      scrub: 0.5,
+      trigger: 'section:nth-of-type(2) article:nth-of-type(2)',
+      start: 'bottom bottom',
+      end: 'bottom 50%' } });
+
+
+  // Fourth
+  gsap.set('.filler', {
+    display: 'block',
+    position: 'absolute',
+    bottom: '30vh',
+    padding: '1rem' });
+
+  gsap.set('section:nth-of-type(2) article:nth-of-type(3)', {
+    height: '400vh' });
+
+  gsap.set('section:nth-of-type(2) article:nth-of-type(3) .fixed', {
+    zIndex: 3 });
+
+  gsap.set('section:nth-of-type(2) article:nth-of-type(3) h2', {
+    marginTop: '80vh' });
+
+  gsap.from('section:nth-of-type(2) article:nth-of-type(3) .fixed', {
+    opacity: 0,
+    scrollTrigger: {
+      trigger: 'section:nth-of-type(2) article:nth-of-type(3)',
+      scrub: 0.5,
+      start: 'top 80%',
+      end: 'top top' } });
+
+
+  gsap.to('section:nth-of-type(2) article:nth-of-type(3) img', {
+    opacity: 0,
+    scrollTrigger: {
+      trigger: 'section:nth-of-type(2) article:nth-of-type(3)',
+      scrub: 0.5,
+      start: 'bottom bottom',
+      end: 'bottom 85%' } });
+
+
+  // Animate the text blocks
+  const LINES = document.querySelectorAll('.text-blocks p');
+  LINES.forEach((LINE, index) => {
+    gsap.from(LINE, {
+      yPercent: 100,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: 'section:nth-of-type(2) article:nth-of-type(3)',
+        scrub: 0.5,
+        start: `top -=${90 + index * 10}%`,
+        end: `top -=${100 + index * 10}%` } });
+
+
+  });
+  gsap.to('.text-blocks', {
+    opacity: 0,
+    scrollTrigger: {
+      trigger: 'section:nth-of-type(2) article:nth-of-type(3)',
+      scrub: 0.5,
+      start: 'bottom 130%',
+      end: 'bottom 110%' } });
+
+
+  gsap.to('.filler h2', {
+    opacity: 0,
+    filter: 'blur(4rem)',
+    scrollTrigger: {
+      trigger: 'section:nth-of-type(2) article:nth-of-type(3)',
+      scrub: 0.5,
+      start: 'bottom 55%',
+      end: 'bottom 30%' } });
+
+
+  // The last piece is unclipping the end piece
+  gsap.set('section:nth-of-type(2) article:last-of-type .fixed', {
+    clipPath: 'ellipse(220% 200% at 50% 300%)',
+    zIndex: 5 });
+
+  gsap.to('section:nth-of-type(2) article:last-of-type .fixed', {
+    clipPath: 'ellipse(220% 200% at 50% 175%)',
+    scrollTrigger: {
+      trigger: 'section:nth-of-type(2) article:last-of-type',
+      scrub: 0.5,
+      start: 'top 80%',
+      end: 'top 20%' } });
+
+
 }
