@@ -175,7 +175,7 @@ html {
     background-position: cover; /* Center the GIF */
     background-repeat: no-repeat; /* Prevent the GIF from repeating */
     background-attachment: fixed;
-    height: 250vh; /* Set a fixed height for the section */
+    height: 100vh; /* Set a fixed height for the section */
     width: 100vi;
     padding: 80px;
     overflow: auto;
